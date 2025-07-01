@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 
 @Component({
@@ -9,7 +10,9 @@ import { Component } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   galleryImages = [
     'assets/images/DJI_20250630114019_0002_V_map-plan-6862bbbf098abd9b4e09d5b4-wp-2.JPG',
     'assets/images/DJI_20250630120456_0002_V_map-plan-6862c379417f297857ac3126-wp-2.JPG',
@@ -66,5 +69,19 @@ export class AppComponent {
 
   sliderNext() {
     this.sliderIndex = (this.sliderIndex + 1) % this.galleryImages.length;
+  }
+
+  ngOnInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.carouselInterval = setInterval(() => {
+        this.nextCarousel();
+      }, 4000);
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.carouselInterval) {
+      clearInterval(this.carouselInterval);
+    }
   }
 } 
