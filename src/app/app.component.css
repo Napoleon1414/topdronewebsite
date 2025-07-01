@@ -396,4 +396,50 @@ body {
     .whatsapp-label {
       font-size: 0.95rem;
     }
+  }
+  
+  .trusted-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem 0 1rem 0;
+  }
+  .trusted-icon {
+    height: 60px;
+    max-width: 120px;
+    object-fit: contain;
+    filter: grayscale(0.2) contrast(1.2) drop-shadow(0 2px 8px rgba(30,41,59,0.10));
+    background: #fff;
+    border-radius: 12px;
+    padding: 0.5rem 1rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .trusted-icon:hover {
+    transform: scale(1.07);
+    box-shadow: 0 8px 32px rgba(25,118,210,0.18);
+  }
+  
+  .counter {
+    font-size: 2.8rem;
+    color: #0a2a66;
+    font-weight: 900;
+    letter-spacing: 1px;
+    display: inline-block;
+    margin-bottom: 0.2rem;
+  }
+  @media (max-width: 700px) {
+    .trusted-icon {
+      height: 38px;
+      max-width: 70px;
+      padding: 0.3rem 0.5rem;
+    }
+    .trusted-icons {
+      gap: 1rem;
+      padding: 1rem 0 0.5rem 0;
+    }
+    .counter {
+      font-size: 2rem;
+    }
   } 

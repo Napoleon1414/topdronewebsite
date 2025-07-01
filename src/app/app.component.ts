@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 
@@ -10,7 +10,7 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
   galleryImages = [
@@ -83,5 +83,28 @@ export class AppComponent implements OnInit, OnDestroy {
     if (this.carouselInterval) {
       clearInterval(this.carouselInterval);
     }
+  }
+
+  ngAfterViewInit() {
+    this.animateCounter('companies-counter', 15, 1200);
+    this.animateCounter('missions-counter', 50, 1200);
+    this.animateCounter('pictures-counter', 4000, 1200);
+  }
+
+  animateCounter(id: string, target: number, duration: number) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    let start = 0;
+    const increment = target / (duration / 16);
+    function update() {
+      start += increment;
+      if (start < target) {
+        el!.textContent = Math.floor(start).toString();
+        requestAnimationFrame(update);
+      } else {
+        el!.textContent = target.toString();
+      }
+    }
+    update();
   }
 } 
