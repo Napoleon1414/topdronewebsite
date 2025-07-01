@@ -422,12 +422,13 @@ body {
   }
   
   .counter {
-    font-size: 2.8rem;
+    font-size: 4.2rem;
     color: #0a2a66;
     font-weight: 900;
     letter-spacing: 1px;
     display: inline-block;
     margin-bottom: 0.2rem;
+    transition: transform 0.18s cubic-bezier(.4,2,.6,1), color 0.18s;
   }
   @media (max-width: 700px) {
     .trusted-icon {
@@ -440,6 +441,6 @@ body {
       padding: 1rem 0 0.5rem 0;
     }
     .counter {
-      font-size: 2rem;
+      font-size: 2.7rem;
     }
   } 
