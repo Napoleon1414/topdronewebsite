@@ -93,7 +93,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
           if (entry.isIntersecting && !this.countersAnimated) {
             this.animateCounter('companies-counter', 45, 2000, 0);
             this.animateCounter('missions-counter', 150, 2000, 100);
-            this.animateCounter('pictures-counter', 12000, 2200, 200);
+            this.animateCounter('media-counter', 12000, 2200, 200);
+            this.animateCounter('satisfaction-counter', 100, 1800, 400);
             this.countersAnimated = true;
             observer.disconnect();
           }
@@ -107,7 +108,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
       // Fallback: animate immediately
       this.animateCounter('companies-counter', 45, 2000, 0);
       this.animateCounter('missions-counter', 150, 2000, 100);
-      this.animateCounter('pictures-counter', 12000, 2200, 200);
+      this.animateCounter('media-counter', 12000, 2200, 200);
+      this.animateCounter('satisfaction-counter', 100, 1800, 400);
     }
   }
 
@@ -115,7 +117,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
     const el = document.getElementById(id);
     if (!el) return;
     let start = 0;
-    const increment = target / (duration / 16);
+    const steps = Math.ceil(duration / 16);
+    const increment = target / steps;
     let lastValue = 0;
     function update() {
       start += increment * (0.7 + 0.3 * Math.sin(start / target * Math.PI)); // ease in-out
