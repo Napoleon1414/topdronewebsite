@@ -1,10 +1,5 @@
 <header class="header">
-  <img src="assets/images/with_black_border_final.png" alt="Top Drone Logo" class="logo" />
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#gallery">Project Examples</a>
-    <a href="#contact">Contact</a>
-  </nav>
+  <img src="assets/images/with_black_border_final.jpg" alt="Top Drone Logo" class="logo" />
 </header>
 
 <section class="hero" style="position:relative; overflow:hidden;">
@@ -36,11 +31,10 @@
 
 <section id="gallery" class="gallery">
   <h2>Project Examples</h2>
-  <div class="gallery-grid">
-    <img *ngFor="let img of galleryImages; let i = index" [src]="img" [alt]="'Flight photo ' + (i+1)" (click)="openModal(i)" class="gallery-img" />
-  </div>
-  <div class="modal" [class.show]="modalOpen" (click)="closeModal()">
-    <img *ngIf="modalOpen" [src]="galleryImages[selectedImage]" class="modal-img" />
+  <div class="slider-container">
+    <div class="slider-track">
+      <img *ngFor="let img of galleryImages; let i = index" [src]="img" [alt]="'Flight photo ' + (i+1)" class="slider-img" [class.active]="i === sliderIndex" />
+    </div>
   </div>
 </section>
 
@@ -48,11 +42,11 @@
   <p>&copy; 2024 Top Drone Consultants</p>
   <p>
     <a href="mailto:gerencia@topdroneconsultants.com">gerencia&#64;topdroneconsultants.com</a> |
-    <a href="https://wa.me/34667774276" target="_blank" style="display:inline-flex;align-items:center;text-decoration:none;color:inherit;">
+    <a href="https://wa.me/507667774276" target="_blank" style="display:inline-flex;align-items:center;text-decoration:none;color:inherit;">
       <span style="vertical-align:middle; margin-right: 0.3em;">
         <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;"><path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.832 4.584 2.236 6.393L4 29l7.824-2.05C13.416 27.168 14.684 27.5 16 27.5c6.627 0 12-5.373 12-12S22.627 3 16 3zm0 22c-1.18 0-2.336-.207-3.432-.613l-.244-.09-4.65 1.22 1.24-4.53-.16-.25C6.82 18.09 6 16.59 6 15c0-5.514 4.486-10 10-10s10 4.486 10 10-4.486 10-10 10zm5.29-7.71c-.29-.145-1.71-.844-1.98-.94-.27-.1-.47-.145-.67.145-.2.29-.77.94-.94 1.13-.17.2-.35.22-.64.075-.29-.145-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2-.17-.29-.02-.44.13-.58.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.2.05-.37-.025-.52-.075-.145-.67-1.62-.92-2.22-.24-.58-.48-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.075-.8.37-.27.29-1.05 1.03-1.05 2.5 0 1.47 1.08 2.89 1.23 3.09.15.2 2.13 3.25 5.17 4.43.72.31 1.28.5 1.72.64.72.23 1.37.2 1.88.12.57-.085 1.71-.7 1.95-1.38.24-.68.24-1.26.17-1.38-.07-.12-.26-.19-.55-.33z"/></svg>
       </span>
-      667774276 (WhatsApp)
+      +507 667774276 (WhatsApp)
     </a>
   </p>
 </footer> 
