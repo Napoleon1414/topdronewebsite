@@ -1,17 +1,18 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit, OnDestroy, Inject, PLATFORM_ID, AfterViewInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { RouterModule, Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private router: Router) {}
 
   galleryImages = [
     'assets/images/DJI_20250630114019_0002_V_map-plan-6862bbbf098abd9b4e09d5b4-wp-2.JPG',
@@ -70,6 +71,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
   sliderNext() {
     this.sliderIndex = (this.sliderIndex + 1) % this.galleryImages.length;
+  }
+
+  isHomeRoute() {
+    return this.router.url === '/';
   }
 
   ngOnInit() {
