@@ -9,7 +9,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
   standalone: true,
   imports: [CommonModule, FormsModule],
   template: `
-    <div style="padding:2rem;max-width:900px;margin:0 auto;">
+    <div class="slider-main-container">
       <div style="text-align:center;margin-bottom:1.5rem;">
         <img src="assets/images/with_black_border_final.jpg" alt="Top Drone Logo" style="height:100px;width:auto;" />
       </div>
@@ -63,7 +63,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
             <div class="curtain-right">
               <div class="sketchfab-embed-wrapper">
                 <ng-container *ngIf="isImage(rightRawUrl); else rightIframe">
-                  <img [src]="rightRawUrl" style="width:100%;height:100%;object-fit:cover;border-radius:16px 16px 0 0;" />
+                  <img [src]="rightRawUrl" />
                 </ng-container>
                 <ng-template #rightIframe>
                   <iframe [src]="rightUrl" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share></iframe>
@@ -73,7 +73,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
             <div class="curtain-left" [ngStyle]="{'clip-path': 'inset(0 0 0 ' + curtainValue + '%)'}">
               <div class="sketchfab-embed-wrapper">
                 <ng-container *ngIf="isImage(leftRawUrl); else leftIframe">
-                  <img [src]="leftRawUrl" style="width:100%;height:100%;object-fit:cover;border-radius:16px 16px 0 0;" />
+                  <img [src]="leftRawUrl" />
                 </ng-container>
                 <ng-template #leftIframe>
                   <iframe [src]="leftUrl" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share></iframe>
@@ -84,22 +84,46 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
           </div>
         </ng-container>
         <ng-template #singleModel>
-          <div class="sketchfab-embed-wrapper" style="max-width:900px;margin:2rem auto;">
-            <ng-container *ngIf="isImage(leftRawUrl); else singleIframe">
-              <img [src]="leftRawUrl" style="width:100%;height:480px;object-fit:cover;border-radius:16px 16px 0 0;" />
-            </ng-container>
-            <ng-template #singleIframe>
-              <iframe [src]="leftUrl" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share style="width:100%;height:480px;"></iframe>
-            </ng-template>
+          <div class="curtain-container">
+            <div class="sketchfab-embed-wrapper">
+              <ng-container *ngIf="isImage(leftRawUrl); else singleIframe">
+                <img [src]="leftRawUrl" />
+              </ng-container>
+              <ng-template #singleIframe>
+                <iframe [src]="leftUrl" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share></iframe>
+              </ng-template>
+            </div>
           </div>
         </ng-template>
       </div>
     </div>
   `,
   styles: [`
+    .slider-main-container {
+      width: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      padding: 2rem;
+    }
+    @media (max-width: 700px) {
+      .slider-main-container {
+        padding: 0.5rem;
+        max-width: 100vw;
+      }
+      .curtain-container {
+        height: 60vw;
+        min-height: 220px;
+        max-height: 70vw;
+      }
+      .sketchfab-embed-wrapper img,
+      .sketchfab-embed-wrapper iframe {
+        border-radius: 10px 10px 0 0;
+      }
+    }
     .curtain-container {
       position: relative;
-      width: 90vw;
+      width: 100%;
       max-width: 900px;
       height: 480px;
       margin: 2rem auto;
