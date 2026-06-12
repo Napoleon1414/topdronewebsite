@@ -2,17 +2,17 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-// Serve static files from the browser directory
-app.use(express.static(path.join(__dirname, 'dist/topdronewebsite/browser')));
+// Serve the static site (index.html + assets/) from the repo root
+app.use(express.static(__dirname));
 
-// Health check endpoint
+// Health check (DigitalOcean uses this)
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK' });
 });
 
-// Catch all handler for Angular routes
+// Fallback: send index.html for any unmatched path
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/topdronewebsite/browser/index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 const port = process.env.PORT || 8080;

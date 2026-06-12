@@ -1,0 +1,14 @@
+# dependencies
+node_modules/
+
+# heavy source material — do NOT commit (GitHub rejects files >100MB)
+*.pptx
+*.pdf
+WhatsApp Image*
+WhatsApp Video*
+
+# local scratch / tooling
+_*
+.claude/
+.DS_Store
+Thumbs.db
