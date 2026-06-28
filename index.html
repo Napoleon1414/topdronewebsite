@@ -554,6 +554,17 @@ body{ font-size:17px; line-height:1.7; }
 .stats-pin .dot{ width:11px; height:11px; border-radius:50%; background:var(--sky-bright); box-shadow:0 0 0 0 rgba(130,220,255,.6); animation:pulse-dot 2.4s infinite; }
 .stats-pin .lbl{ font-family:var(--mono); font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--sky-bright); white-space:nowrap; }
 @media (max-width:760px){ .stats-pin{ display:none; } }
+
+/* ---------- Reduced motion: respect the OS-level preference ---------- */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+    scroll-behavior:auto !important;
+  }
+  .reveal{ opacity:1 !important; transform:none !important; }
+}
 </style>
 </head>
 <body>
@@ -1135,13 +1146,9 @@ body{ font-size:17px; line-height:1.7; }
     <h2 class="reveal" data-en="Ready to see your project<br>from <span class=&quot;accent&quot;>another altitude</span>?">¿Listo para ver tu proyecto<br>desde <span class="accent">otra altura</span>?</h2>
     <p class="reveal" data-en="Let's talk about your next survey, inspection or aerial monitoring program. We'll coordinate the first diagnostic flight.">Hablemos de tu próximo levantamiento, inspección o programa de monitoreo aéreo. Coordinamos el primer vuelo de diagnóstico.</p>
     <div class="cta-contacts reveal">
-      <a href="tel:+5076677-4276">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
-        +(507) 6677-4276
-      </a>
-      <a href="tel:+507392-0430">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
-        +(507) 392-0430
+      <a href="https://wa.me/50764913744" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.45 5.15L2 22l5.1-1.55a9.86 9.86 0 0 0 4.94 1.33h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.06h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.03.92.92-2.95-.2-.31a8.2 8.2 0 0 1-1.26-4.39c0-4.53 3.69-8.22 8.23-8.22 2.2 0 4.27.86 5.82 2.41a8.17 8.17 0 0 1 2.4 5.82c0 4.53-3.69 8.22-8.22 8.22Zm4.51-6.16c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.79.96-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.04-.33-.04-.45-.08-.12-.5-1.2-.69-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.28-.01-.43-.01-.15 0-.39.06-.6.29-.2.23-.78.76-.78 1.86 0 1.1.8 2.16.91 2.31.12.16 1.6 2.45 3.88 3.34 1.92.75 2.3.6 2.72.56.41-.04 1.33-.54 1.51-1.07.19-.53.19-.98.13-1.07-.05-.09-.21-.15-.45-.27Z"/></svg>
+        WhatsApp +(507) 6491-3744
       </a>
       <a href="mailto:atencion@topdroneconsultants.com">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
@@ -1164,13 +1171,25 @@ body{ font-size:17px; line-height:1.7; }
 
 <script>
 (function(){
+  // ---------- Shared scroll dispatcher (rAF-coalesced) ----------
+  // All scroll-driven work funnels through one listener and runs at most
+  // once per animation frame, avoiding multiple forced layouts per scroll.
+  var scrollCbs = [], scrollTicking = false;
+  var runScrollCbs = function(){
+    scrollTicking = false;
+    for(var i=0;i<scrollCbs.length;i++){ scrollCbs[i](); }
+  };
+  var onScrollDispatch = function(){
+    if(!scrollTicking){ scrollTicking = true; requestAnimationFrame(runScrollCbs); }
+  };
+  var onScrollFrame = function(cb){ scrollCbs.push(cb); cb(); };
+  document.addEventListener('scroll', onScrollDispatch, { passive:true });
+
   // ---------- Navbar scroll state ----------
   var navbar = document.getElementById('navbar');
-  var onScroll = function(){
+  onScrollFrame(function(){
     if(window.scrollY > 30){ navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
-  };
-  document.addEventListener('scroll', onScroll, { passive:true });
-  onScroll();
+  });
 
   // ---------- Mobile nav toggle ----------
   var toggle = document.getElementById('navToggle');
@@ -1233,8 +1252,7 @@ body{ font-size:17px; line-height:1.7; }
     sections.forEach(function(s){ if(s.offsetTop <= pos){ current = s; } });
     navAnchors.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + current.id); });
   };
-  document.addEventListener('scroll', setActive, { passive:true });
-  setActive();
+  onScrollFrame(setActive);
 
   // ---------- Reveal on scroll ----------
   var io = new IntersectionObserver(function(entries){
@@ -1329,12 +1347,12 @@ body{ font-size:17px; line-height:1.7; }
     var activeIdx = Math.floor(progress * phaseItems.length);
     phaseItems.forEach(function(item, i){ item.classList.toggle('is-visible', i <= activeIdx); });
   };
-  document.addEventListener('scroll', updatePhaseProgress, { passive:true });
   window.addEventListener('resize', updatePhaseProgress);
-  updatePhaseProgress();
+  onScrollFrame(updatePhaseProgress);
 
   // ---------- LiDAR forest-scan canvas ----------
   var canvas = document.getElementById('lidarscan');
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(canvas){
     var ctx = canvas.getContext('2d');
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -1425,9 +1443,27 @@ body{ font-size:17px; line-height:1.7; }
         ctx.beginPath(); ctx.arc(scanX+12,droneY,2.6,0,Math.PI*2); ctx.fill();
         ctx.fillRect(scanX-3,droneY-2,6,5);
       }
-      requestAnimationFrame(draw);
+      if(running) rafId = requestAnimationFrame(draw);
     };
-    draw();
+
+    // Only animate while the canvas is on-screen; honor reduced-motion.
+    var running = false, rafId = 0, inView = true;
+    var start = function(){ if(!running && !reduceMotion && inView && !document.hidden){ running = true; rafId = requestAnimationFrame(draw); } };
+    var stop = function(){ running = false; if(rafId) cancelAnimationFrame(rafId); rafId = 0; };
+    if(reduceMotion){
+      draw();   // render a single static frame
+    } else if('IntersectionObserver' in window){
+      new IntersectionObserver(function(entries){
+        inView = entries[0].isIntersecting;
+        inView ? start() : stop();
+      }, { threshold: 0 }).observe(canvas);
+    } else {
+      start();
+    }
+    // Pause when the tab is hidden; resume only if still on-screen.
+    document.addEventListener('visibilitychange', function(){
+      document.hidden ? stop() : start();
+    });
   }
 })();
 </script>
