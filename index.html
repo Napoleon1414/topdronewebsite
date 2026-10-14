@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>TopDrone Consultants · Soluciones Aéreas Inteligentes para la Construcción</title>
-<meta name="description" content="Drones, fotogrametría, modelado 3D, LiDAR e inteligencia artificial para la construcción y el desarrollo urbano en Panamá." />
+<title>TopDrone Consultants · Topografía LiDAR, Fotogrametría y Documentación de Obra en Panamá</title>
+<meta name="description" content="Topografía LiDAR y fotogrametría con control geodésico, seguimiento de avance de obra, captura terrestre e inventarios georreferenciados para ingeniería, construcción y desarrollo urbano en Panamá." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%230a1830'/%3E%3Ccircle cx='24' cy='24' r='14' fill='none' stroke='%232bb1f2' stroke-width='3'/%3E%3Ccircle cx='24' cy='24' r='3' fill='%232bb1f2'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -554,6 +554,73 @@ body{ font-size:17px; line-height:1.7; }
 .stats-pin .dot{ width:11px; height:11px; border-radius:50%; background:var(--sky-bright); box-shadow:0 0 0 0 rgba(130,220,255,.6); animation:pulse-dot 2.4s infinite; }
 .stats-pin .lbl{ font-family:var(--mono); font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--sky-bright); white-space:nowrap; }
 @media (max-width:760px){ .stats-pin{ display:none; } }
+/* ============ SERVICIOS (catálogo) ============ */
+.svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+.svc-card{ position:relative; display:flex; flex-direction:column; padding:30px 26px 26px; background:var(--navy-card); border:1px solid var(--line); border-radius:2px; transition:transform .45s var(--ease), border-color .4s, box-shadow .4s; }
+.svc-card:hover{ transform:translateY(-6px); border-color:var(--line-strong); box-shadow:0 24px 60px -24px rgba(0,0,0,.6); }
+.svc-top{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; }
+.svc-icon{ width:46px; height:46px; display:grid; place-items:center; border:1px solid var(--line-strong); border-radius:3px; background:rgba(43,177,242,.07); color:var(--sky-bright); }
+.svc-icon svg{ width:24px; height:24px; }
+.svc-for{ font-family:var(--mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--text-faint); text-align:right; }
+.svc-card h3{ font-family:var(--body); font-weight:700; font-size:1.22rem; line-height:1.25; margin-bottom:10px; }
+.svc-card > p{ color:var(--text-dim); font-size:.98rem; margin-bottom:18px; }
+.svc-list{ display:flex; flex-direction:column; gap:9px; margin-bottom:22px; }
+.svc-list li{ display:flex; align-items:flex-start; gap:10px; font-size:.92rem; color:var(--text); }
+.svc-list li::before{ content:""; flex-shrink:0; width:6px; height:6px; margin-top:8px; border:1px solid var(--sky); border-radius:1px; transform:rotate(45deg); }
+.svc-links{ margin-top:auto; display:flex; flex-wrap:wrap; gap:10px 18px; padding-top:16px; border-top:1px solid var(--line); }
+.svc-links a{ display:inline-flex; align-items:center; gap:7px; font-family:var(--mono); font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--sky-bright); text-decoration:none; transition:color .3s; }
+.svc-links a:hover{ color:var(--text); }
+.svc-links a svg{ width:14px; height:14px; }
+.svc-extra{ margin-top:22px; display:flex; flex-wrap:wrap; align-items:center; gap:12px 18px; padding:20px 24px; border:1px dashed var(--line-strong); border-radius:2px; }
+.svc-extra .lab{ font-family:var(--mono); font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--sky-bright); margin-right:6px; }
+.svc-extra span:not(.lab){ font-size:.94rem; color:var(--text-dim); }
+.svc-extra span:not(.lab)::before{ content:"◆"; color:var(--sky); font-size:.6rem; margin-right:9px; vertical-align:middle; }
+@media (max-width:980px){ .svc-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:620px){ .svc-grid{ grid-template-columns:1fr; } }
+
+/* ============ AVANCE DE OBRA (método compacto + modalidades) ============ */
+.method-strip{ display:grid; grid-template-columns:repeat(5,1fr); gap:12px; margin-bottom:42px; }
+.method-step{ position:relative; padding:16px 16px 16px 18px; border:1px solid var(--line); border-left:3px solid var(--sky); border-radius:2px; background:rgba(43,177,242,.04); }
+.method-step .mn{ font-family:var(--mono); font-size:.66rem; letter-spacing:.14em; color:var(--text-faint); display:block; margin-bottom:6px; }
+.method-step h4{ font-size:.98rem; font-weight:700; line-height:1.3; }
+@media (max-width:980px){ .method-strip{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:600px){ .method-strip{ grid-template-columns:1fr; } }
+.modes-grid{ display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:44px; }
+.modes-grid .eco-card p{ margin-bottom:0; }
+.modes-grid .eco-card h3 span{ font-family:var(--mono); font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color:var(--sky-bright); display:block; margin-bottom:8px; font-weight:400; }
+@media (max-width:760px){ .modes-grid{ grid-template-columns:1fr; } }
+
+/* ============ DESCARGAS (fichas PDF) ============ */
+.docs-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+.doc-card{ display:flex; flex-direction:column; background:var(--navy-card); border:1px solid var(--line); border-radius:2px; overflow:hidden; transition:transform .45s var(--ease), border-color .4s, box-shadow .4s; }
+.doc-card:hover{ transform:translateY(-6px); border-color:var(--line-strong); box-shadow:0 24px 60px -24px rgba(0,0,0,.6); }
+.doc-thumb{ position:relative; aspect-ratio:8.5/11; overflow:hidden; background:#fff; border-bottom:1px solid var(--line); }
+.doc-thumb img{ width:100%; height:100%; object-fit:cover; object-position:top; display:block; transition:transform .6s var(--ease); }
+.doc-card:hover .doc-thumb img{ transform:scale(1.04); }
+.doc-thumb::after{ content:""; position:absolute; inset:0; background:linear-gradient(180deg, transparent 60%, rgba(6,15,31,.55)); pointer-events:none; }
+.doc-kind{ position:absolute; z-index:2; top:10px; left:10px; font-family:var(--mono); font-size:.62rem; letter-spacing:.12em; text-transform:uppercase; color:var(--navy-deep); background:var(--sky-bright); padding:4px 8px; border-radius:2px; font-weight:700; }
+.doc-body{ display:flex; flex-direction:column; flex:1; padding:18px 18px 20px; }
+.doc-for{ font-family:var(--mono); font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--text-faint); margin-bottom:8px; }
+.doc-body h3{ font-family:var(--body); font-weight:700; font-size:1.02rem; line-height:1.3; margin-bottom:8px; }
+.doc-body p{ font-size:.86rem; color:var(--text-dim); margin-bottom:16px; }
+.doc-meta{ font-family:var(--mono); font-size:.64rem; letter-spacing:.1em; color:var(--text-faint); margin-top:auto; margin-bottom:12px; }
+.doc-btn{ display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:11px 14px; border:1px solid var(--sky); border-radius:2px; color:var(--sky-bright); font-family:var(--mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; text-decoration:none; transition:all .3s var(--ease); }
+.doc-btn:hover{ background:var(--sky); color:var(--navy-deep); }
+.doc-btn svg{ width:14px; height:14px; }
+.docs-note{ margin-top:26px; font-size:.9rem; color:var(--text-faint); }
+.docs-note a{ color:var(--sky-bright); }
+@media (max-width:1100px){ .docs-grid{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:720px){ .docs-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:460px){ .docs-grid{ grid-template-columns:1fr; } }
+
+/* stats: four tiles / programs: three cards */
+.stats-grid{ grid-template-columns:repeat(4,1fr); gap:28px; }
+@media (max-width:980px){ .stats-grid{ grid-template-columns:repeat(2,1fr); gap:40px; } }
+@media (max-width:560px){ .stats-grid{ grid-template-columns:1fr; } }
+.programs-grid{ grid-template-columns:repeat(3,1fr); }
+@media (max-width:980px){ .programs-grid{ grid-template-columns:1fr; } }
+.program-card.alt2{ background:var(--navy-card); }
+.cta-contacts a.wa{ border-color:var(--sky); }
 
 /* ---------- Reduced motion: respect the OS-level preference ---------- */
 @media (prefers-reduced-motion: reduce){
@@ -577,13 +644,12 @@ body{ font-size:17px; line-height:1.7; }
       <img class="logo-img" src="assets/img/logo-topdrone-white.png" alt="TopDrone Consultants" width="655" height="150">
     </a>
     <nav class="nav-links" id="navLinks">
-      <a href="#problema" data-en='<span class="idx">01</span>Problem'><span class="idx">01</span>Problema</a>
-      <a href="#metodo" data-en='<span class="idx">02</span>Method'><span class="idx">02</span>Método</a>
-      <a href="#lidar" data-en='<span class="idx">03</span>LiDAR'><span class="idx">03</span>LiDAR</a>
-      <a href="#proyectos" data-en='<span class="idx">04</span>Projects'><span class="idx">04</span>Proyectos</a>
-      <a href="#fases" data-en='<span class="idx">05</span>Phases'><span class="idx">05</span>Fases</a>
-      <a href="#clientes" data-en='<span class="idx">06</span>Clients'><span class="idx">06</span>Clientes</a>
-      <a href="#contacto" data-en='<span class="idx">07</span>Contact'><span class="idx">07</span>Contacto</a>
+      <a href="#servicios" data-en='<span class="idx">01</span>Services'><span class="idx">01</span>Servicios</a>
+      <a href="#lidar" data-en='<span class="idx">02</span>LiDAR'><span class="idx">02</span>LiDAR</a>
+      <a href="#avance" data-en='<span class="idx">03</span>Site progress'><span class="idx">03</span>Avance de obra</a>
+      <a href="#descargas" data-en='<span class="idx">04</span>Downloads'><span class="idx">04</span>Descargas</a>
+      <a href="#clientes" data-en='<span class="idx">05</span>Clients'><span class="idx">05</span>Clientes</a>
+      <a href="#contacto" data-en='<span class="idx">06</span>Contact'><span class="idx">06</span>Contacto</a>
     </nav>
     <div class="nav-right">
       <div class="nav-status">
@@ -616,11 +682,11 @@ body{ font-size:17px; line-height:1.7; }
     <div class="hero-content">
       <p class="eyebrow" data-en="TopDrone Consultants · Panama">TopDrone Consultants · Panamá</p>
       <h1 data-en='Smart <span class="accent">Aerial</span><br>Solutions'>Soluciones <span class="accent">Aéreas</span><br>Inteligentes</h1>
-      <p class="sub-line" data-en="for Construction and Urban Development">para la Construcción y el Desarrollo Urbano</p>
-      <p class="lede" data-en="Drones, photogrammetry, 3D modeling, LiDAR surveys and artificial intelligence: we turn every flight over your site into digital information that drives transparency, efficiency, precision and trust, stage by stage.">Drones, fotogrametría, modelado 3D, levantamientos LiDAR e inteligencia artificial: convertimos cada vuelo sobre tu obra en información digital que impulsa transparencia, eficiencia, precisión y confianza, etapa por etapa.</p>
+      <p class="sub-line" data-en="for Engineering, Construction and Urban Development">para la Ingeniería, la Construcción y el Desarrollo Urbano</p>
+      <p class="lede" data-en="LiDAR topography, photogrammetry, ground capture and georeferenced asset inventories: we turn every flight into engineering-ready data, with geodetic control and delivered in the formats your team already uses.">Topografía LiDAR, fotogrametría, captura terrestre e inventarios georreferenciados: convertimos cada vuelo en datos listos para diseñar, construir y administrar, con control geodésico y en los formatos que tu equipo ya usa.</p>
       <div class="hero-cta">
-        <a href="#contacto" class="btn btn-primary" data-en="Request an aerial diagnosis">Solicitar diagnóstico aéreo</a>
-        <a href="#metodo" class="btn btn-ghost" data-en-text="See how we do it">Ver cómo lo hacemos
+        <a href="#contacto" class="btn btn-primary" data-en="Request a proposal">Solicitar una propuesta</a>
+        <a href="#servicios" class="btn btn-ghost" data-en-text="See our services">Ver servicios
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
         </a>
       </div>
@@ -639,12 +705,12 @@ body{ font-size:17px; line-height:1.7; }
     <div class="section-head reveal">
       <p class="section-label"><span class="num">01</span> <span data-en="Field diagnosis">Diagnóstico de campo</span></p>
       <h2 data-en="The problem we <em>solve</em>">El problema que <em>resolvemos</em></h2>
-      <p class="section-intro" data-en="Before we talk about drones, let's talk about what's really holding back construction and urban development projects today.">Antes de hablar de drones, hablemos de lo que realmente está frenando a los proyectos de construcción y desarrollo urbano hoy.</p>
+      <p class="section-intro" data-en="Before we talk about drones, let's talk about what's really holding back engineering, construction and urban development projects today.">Antes de hablar de drones, hablemos de lo que realmente está frenando a los proyectos de ingeniería, construcción y desarrollo urbano hoy.</p>
     </div>
     <ul class="problem-list stagger">
       <li class="reveal" style="--i:0">
         <span class="problem-index">01</span>
-        <div><h3 data-en="Outdated information">Información desactualizada</h3><p data-en="Traditional methods don't capture the real state of the project → slow decisions and costly rework.">Los métodos tradicionales no capturan el estado real del proyecto → decisiones lentas y retrabajos costosos.</p></div>
+        <div><h3 data-en="Slow, outdated field data">Datos de campo lentos y desactualizados</h3><p data-en="Weeks of total-station survey before design can start, and reports that don't capture the real state of the project → slow decisions and costly rework.">Semanas de estación total antes de poder diseñar, y reportes que no capturan el estado real del proyecto → decisiones lentas y retrabajos costosos.</p></div>
         <span class="problem-tag" data-en="Alert">Alerta</span>
       </li>
       <li class="reveal" style="--i:1">
@@ -683,8 +749,8 @@ body{ font-size:17px; line-height:1.7; }
         <span class="oc-num">01</span>
         <div class="oc-bezel"><span class="oc-ring" aria-hidden="true"></span><span class="oc-icon icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="15"/><circle cx="24" cy="24" r="3" fill="currentColor" stroke="none"/><line x1="24" y1="2" x2="24" y2="9"/><line x1="24" y1="39" x2="24" y2="46"/><line x1="2" y1="24" x2="9" y2="24"/><line x1="39" y1="24" x2="46" y2="24"/></svg></span></div>
         <h3 data-en="Specialization">Especialización</h3>
-        <p data-en="Cutting-edge drone photogrammetry solutions, tailored to the construction and urban development industry.">Soluciones de fotogrametría con drones de vanguardia, adaptadas a la industria de la construcción y el desarrollo urbano.</p>
-        <span class="oc-readout" data-en="// Drone photogrammetry">// Fotogrametría con drones</span>
+        <p data-en="Drone LiDAR and photogrammetry with geodetic control, tailored to engineering, construction and urban development.">LiDAR y fotogrametría con drones y control geodésico, adaptados a la ingeniería, la construcción y el desarrollo urbano.</p>
+        <span class="oc-readout" data-en="// LiDAR + photogrammetry">// LiDAR + fotogrametría</span>
       </article>
       <article class="origin-card reveal" style="--i:1">
         <span class="oc-corner tl"></span><span class="oc-corner tr"></span><span class="oc-corner bl"></span><span class="oc-corner br"></span>
@@ -729,68 +795,79 @@ body{ font-size:17px; line-height:1.7; }
       <h2 data-en="<em>Top!</em> experience">Experiencia <em>Top!</em></h2>
     </div>
     <div class="stats-grid stagger">
-      <div class="stat reveal" style="--i:0"><span class="stat-number" data-target="100" data-suffix="+">0</span><span class="stat-label" data-en="Completed projects">Proyectos completados</span></div>
-      <div class="stat reveal" style="--i:1"><span class="stat-number" data-target="5000" data-suffix="+">0</span><span class="stat-label" data-en="Flights flown">Vuelos realizados</span></div>
-      <div class="stat reveal" style="--i:2"><span class="stat-number" data-target="100" data-suffix="K+">0</span><span class="stat-label" data-en="Analyses delivered to clients">Análisis entregados a clientes</span></div>
+      <div class="stat reveal" style="--i:0"><span class="stat-number" data-target="40000" data-suffix="+ ha">0</span><span class="stat-label" data-en="Flown in the last two years">Voladas en los últimos dos años</span></div>
+      <div class="stat reveal" style="--i:1"><span class="stat-number" data-target="150" data-suffix="+">0</span><span class="stat-label" data-en="Completed projects">Proyectos completados</span></div>
+      <div class="stat reveal" style="--i:2"><span class="stat-number" data-target="20" data-suffix="+">0</span><span class="stat-label" data-en="LiDAR projects in 2026 · 10,000+ ha">Proyectos LiDAR en 2026 · 10,000+ ha</span></div>
+      <div class="stat reveal" style="--i:3"><span class="stat-number" data-target="300" data-suffix="+ km">0</span><span class="stat-label" data-en="Linear corridors surveyed">Corredores lineales levantados</span></div>
     </div>
     <p class="stats-footnote reveal" data-en="Active presence across all of Panama">Presencia activa en todo el territorio panameño</p>
   </section>
 
-  <!-- ============ CÓMO LO HACEMOS ============ -->
-  <section id="metodo" class="section process">
+  <!-- ============ SERVICIOS (catálogo) ============ -->
+  <section id="servicios" class="section services">
     <div class="section-head reveal">
-      <p class="section-label"><span class="num">04</span> <span data-en="Flight methodology">Metodología de vuelo</span></p>
-      <h2 data-en="How do we <em>do it?</em>">¿Cómo lo <em>hacemos?</em></h2>
-      <p class="section-intro" data-en="Using drones, high-resolution cameras and advanced software, we build a detailed virtual model of construction sites or existing developments, in five steps.">Usando drones, cámaras de alta resolución y software avanzado, creamos un modelo virtual detallado de los sitios de construcción o desarrollos existentes, en cinco pasos.</p>
+      <p class="section-label"><span class="num">04</span> <span data-en="Service catalogue">Catálogo de servicios</span></p>
+      <h2 data-en="Data for <em>every stage</em> of the project">Datos para <em>cada etapa</em> del proyecto</h2>
+      <p class="section-intro" data-en="From the raw lot to the finished work and its maintenance: LiDAR topography, progress documentation, ground capture and georeferenced inventories, all on one platform and in the formats your team already uses.">Del lote en bruto a la obra terminada y su mantenimiento: topografía LiDAR, documentación de avance, captura terrestre e inventarios georreferenciados, todo en una misma plataforma y en los formatos que tu equipo ya usa.</p>
     </div>
-    <ol class="process-path stagger">
-      <li class="reveal" style="--i:0"><span class="step-num">01</span><div><h3 data-en="Aerial Data Collection">Recolección de Datos Aéreos</h3><p data-en="Drones capture detailed, georeferenced imagery from multiple angles.">Los drones capturan imágenes detalladas y georreferenciadas desde varios ángulos.</p></div></li>
-      <li class="reveal" style="--i:1"><span class="step-num">02</span><div><h3 data-en="Photogrammetry &amp; 3D Modeling">Fotogrametría y Modelado 3D</h3><p data-en="Images are processed with specialized software to create accurate maps and 3D models.">Las imágenes se procesan con software especializado para crear mapas y modelos 3D precisos.</p></div></li>
-      <li class="reveal" style="--i:2"><span class="step-num">03</span><div><h3 data-en="Remote Inspection &amp; Analysis">Inspección y Análisis Remoto</h3><p data-en="Stakeholders inspect the site remotely, with precision and no physical presence.">Las partes interesadas inspeccionan el sitio de forma remota, con precisión y sin presencia física.</p></div></li>
-      <li class="reveal" style="--i:3"><span class="step-num">04</span><div><h3 data-en="Integration with Plans">Integración con Planos</h3><p data-en="The model is aligned with the architectural plans, identifying discrepancies early.">El modelo se alinea con los planos arquitectónicos, identificando discrepancias tempranamente.</p></div></li>
-      <li class="reveal" style="--i:4"><span class="step-num">05</span><div><h3 data-en="Documentation &amp; Reporting">Documentación e Informes</h3><p data-en="A dynamic record of the process, useful for audits, transparency and accountability.">Registro dinámico del proceso, útil para auditorías, transparencia y responsabilidad.</p></div></li>
-    </ol>
-  </section>
-
-  <!-- ============ ECOSISTEMA ============ -->
-  <section class="section ecosystem">
-    <div class="section-head reveal">
-      <p class="section-label"><span class="num">05</span> <span data-en="Value chain">Cadena de valor</span></p>
-      <h2 data-en="Value for <em>the whole ecosystem</em>">Valor para <em>todo el ecosistema</em></h2>
-      <p class="section-intro" data-en="Improving collaboration and communication among every stakeholder in the project.">Mejorando la colaboración y la comunicación entre todos los actores del proyecto.</p>
+    <div class="svc-grid stagger">
+      <article class="svc-card reveal" style="--i:0">
+        <div class="svc-top"><span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l5-6 4 3 5-7 4 5"/><path d="M3 21h18"/><path d="M12 3v3M8 5l1.5 2M16 5l-1.5 2"/></svg></span><span class="svc-for" data-en="Engineering · Infrastructure">Ingeniería · Infraestructura</span></div>
+        <h3 data-en="LiDAR &amp; photogrammetric topography">Topografía LiDAR y fotogrametría</h3>
+        <p data-en="Surveys with PPK and GNSS control points on the project network. Hectares per day instead of weeks with a total station.">Levantamientos con PPK y puntos de control GNSS en la red del proyecto. Hectáreas por día en vez de semanas con estación total.</p>
+        <ul class="svc-list"><li data-en="Classified point cloud, DTM under vegetation, contours and sections">Nube clasificada, MDT bajo vegetación, curvas y secciones</li><li data-en="Road corridors, power lines, water systems, subdivisions">Corredores viales, líneas eléctricas, acueductos, lotificaciones</li><li data-en="Delivered in Civil 3D, LandXML, LAS, DWG and GeoTIFF">Entrega en Civil 3D, LandXML, LAS, DWG y GeoTIFF</li></ul>
+        <div class="svc-links"><a href="#lidar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-en="See LiDAR">Ver LiDAR</span></a><a href="assets/docs/TopDrone-Servicios-Ingenieria.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="PDF sheet">Ficha PDF</span></a></div>
+      </article>
+      <article class="svc-card reveal" style="--i:1">
+        <div class="svc-top"><span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/><path d="M12 9v2"/></svg></span><span class="svc-for" data-en="Construction">Construcción</span></div>
+        <h3 data-en="Construction progress tracking">Seguimiento de avance de obra</h3>
+        <p data-en="Periodic flights with surface comparison: cut, fill, stockpiles and percent progress per work front, aligned with the plans.">Vuelos periódicos con comparación de superficies: corte, relleno, acopios y porcentaje de avance por frente, alineados con los planos.</p>
+        <ul class="svc-list"><li data-en="From pre-mobilization to interior details">De la pre-movilización a los detalles interiores</li><li data-en="Volumes between flights and early detection of deviations">Volúmenes entre vuelos y detección temprana de desviaciones</li><li data-en="Reports for pay applications, audits and certifications">Reportes para cortes de obra, auditorías y certificaciones</li></ul>
+        <div class="svc-links"><a href="#avance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-en="See how we do it">Ver cómo lo hacemos</span></a></div>
+      </article>
+      <article class="svc-card reveal" style="--i:2">
+        <div class="svc-top"><span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M2 12c0 3 4.5 5 10 5s10-2 10-5-4.5-5-10-5S2 9 2 12Z"/><path d="M12 2v3M12 19v3"/></svg></span><span class="svc-for" data-en="Construction · Interiors">Construcción · Interiores</span></div>
+        <h3 data-en="Ground capture">Captura terrestre</h3>
+        <p data-en="Site documentation at floor level: 360° walkthroughs and panoramas, detail photos and field reports, georeferenced on the plans and on the same platform as the flights.">Documentación de la obra a nivel de piso: recorridos y panorámicas 360°, fotografías de detalle y reportes de campo, georreferenciados sobre los planos y en la misma plataforma que los vuelos.</p>
+        <ul class="svc-list"><li data-en="Embedded installations recorded before every pour">Instalaciones embebidas registradas antes de cada vaciado</li><li data-en="Self-capture by your crew or managed by Top Drone">Autocaptura con tu equipo o gestionada por Top Drone</li><li data-en="Published within 48 h; full dated history">Publicado en 48 h; historial completo por fecha</li></ul>
+        <div class="svc-links"><a href="assets/docs/TopDrone-Captura-Terrestre.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="PDF sheet">Ficha PDF</span></a></div>
+      </article>
+      <article class="svc-card reveal" style="--i:3">
+        <div class="svc-top"><span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.2-6-10a6 6 0 0 1 12 0c0 4.8-6 10-6 10Z"/><circle cx="12" cy="11" r="2"/><path d="M4 21h16"/></svg></span><span class="svc-for" data-en="Infrastructure · Communities">Infraestructura · Comunidades</span></div>
+        <h3 data-en="Georeferenced asset inventory">Inventario georreferenciado de activos</h3>
+        <p data-en="Poles, manholes, lights, hydrants, signs, trees and green areas: every asset with photo, code, attributes and condition, on a platform that opens from a phone.">Postes, tapas, luminarias, hidrantes, señales, árboles y áreas verdes: cada activo con foto, código, atributos y estado, en una plataforma que se abre desde el celular.</p>
+        <ul class="svc-list"><li data-en="Twelve inventory layers for communities and corridors">Doce capas de inventario para comunidades y corredores</li><li data-en="Exportable to Shapefile, GeoJSON, KML and Excel">Exportable a Shapefile, GeoJSON, KML y Excel</li><li data-en="Perpetual license: you pay for the inventory, not per user">Licencia perpetua: pagas por el inventario, no por usuario</li></ul>
+        <div class="svc-links"><a href="assets/docs/TopDrone-Registro-Digital-Infraestructura.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="PDF sheet">Ficha PDF</span></a></div>
+      </article>
+      <article class="svc-card reveal" style="--i:4">
+        <div class="svc-top"><span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20 9 4l4 9 3-5 5 12Z"/><path d="M3 16h18"/></svg></span><span class="svc-for" data-en="Developers · Landowners">Promotores · Desarrolladores</span></div>
+        <h3 data-en="Land development">Desarrollo de lotes</h3>
+        <p data-en="The real ground beneath the vegetation, ready to decide where roads, pads and drainage go, and what it costs to prepare.">El terreno real debajo de la vegetación, listo para decidir dónde van calles, plataformas y drenaje, y cuánto cuesta prepararlo.</p>
+        <ul class="svc-list"><li data-en="Slopes by zone, flood-prone areas and streams with buffers">Pendientes por zona, áreas inundables y cauces con sus franjas</li><li data-en="Cut and fill per stage on the real terrain">Corte y relleno por etapa sobre el terreno real</li><li data-en="Vegetation cover in hectares for the EIA">Cobertura vegetal en hectáreas para el EIA</li></ul>
+        <div class="svc-links"><a href="assets/docs/TopDrone-Desarrollo-de-Lotes.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="PDF sheet">Ficha PDF</span></a></div>
+      </article>
+      <article class="svc-card reveal" style="--i:5">
+        <div class="svc-top"><span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12c-4 0-7-3-7-7 4 0 7 3 7 7Z"/><path d="M12 15c0-4 3-7 7-7 0 4-3 7-7 7Z"/><path d="M4 22h16"/></svg></span><span class="svc-for" data-en="Legal · EIA · Energy">Legal · EIA · Energía</span></div>
+        <h3 data-en="Environmental due diligence">Due diligence ambiental de lotes</h3>
+        <p data-en="See a lot's terrain and vegetation before signing, investing or applying for a permit: an objective, georeferenced and defensible baseline.">Vea el terreno y la vegetación de un lote antes de firmar, invertir o solicitar un permiso: una base objetiva, georreferenciada y defendible.</p>
+        <ul class="svc-list"><li data-en="Cover by type, tree heights and large trees">Cobertura por tipo, altura de árboles y árboles de gran porte</li><li data-en="Vegetation profiles where the specialist indicates">Perfiles de vegetación en los puntos que indique el especialista</li><li data-en="We work with your agronomist, biologist or forester">Trabajamos con tu agrónomo, biólogo o ingeniero forestal</li></ul>
+        <div class="svc-links"><a href="assets/docs/TopDrone-Due-Diligence-Ambiental.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="PDF sheet">Ficha PDF</span></a></div>
+      </article>
     </div>
-    <div class="ecosystem-grid stagger">
-      <article class="eco-card teal reveal" style="--i:0"><h3 data-en="Developers &amp; Owners">Promotores y Dueños</h3><p data-en="Fast, clear visibility of project progress in real time.">Visibilidad rápida y clara del progreso del proyecto en tiempo real.</p><span class="eco-arrow" data-en="→ Transparency">→ Transparencia</span></article>
-      <article class="eco-card blue reveal" style="--i:1"><h3 data-en="Project Managers (PM)">Gerentes de Proyectos (PM)</h3><p data-en="Accurate progress information to plan better and cut costs.">Información de avances precisos para planificar mejor y reducir costos.</p><span class="eco-arrow" data-en="→ Precision">→ Precisión</span></article>
-      <article class="eco-card amber reveal" style="--i:2"><h3 data-en="Contractors &amp; Developers">Contratistas y Desarrolladores</h3><p data-en="They spot issues in time to fix them, saving time and money.">Identifican problemas a tiempo para corregirlos, ahorrando tiempo y dinero.</p><span class="eco-arrow" data-en="→ Efficiency &amp; savings">→ Eficiencia y ahorros</span></article>
-    </div>
-  </section>
-
-  <!-- ============ FASES ============ -->
-  <section id="fases" class="section phases">
-    <div class="section-head reveal">
-      <p class="section-label"><span class="num">06</span> <span data-en="Project flight path">Ruta de vuelo del proyecto</span></p>
-      <h2 data-en="Benefits at <em>every phase</em>">Beneficios en <em>cada fase</em></h2>
-      <p class="section-intro" data-en="We accompany your project from start to finish. Follow the flight path across the seven phases.">Acompañamos tu proyecto de principio a fin. Sigue la ruta de vuelo a través de las siete fases.</p>
-    </div>
-    <div class="phase-track" id="phaseTrack">
-      <div class="phase-line"></div>
-      <span class="phase-marker icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="19" y="19" width="10" height="10" rx="2"/><line x1="19" y1="21" x2="8" y2="10"/><line x1="29" y1="21" x2="40" y2="10"/><line x1="19" y1="29" x2="8" y2="40"/><line x1="29" y1="29" x2="40" y2="40"/><circle cx="8" cy="10" r="4.5"/><circle cx="40" cy="10" r="4.5"/><circle cx="8" cy="40" r="4.5"/><circle cx="40" cy="40" r="4.5"/></svg></span>
-
-      <div class="phase-item reveal"><div class="phase-head"><span class="pn" data-en="PHASE 01">FASE 01</span><h3 data-en="LiDAR Survey">Levantamiento LiDAR</h3><span class="phase-badge" data-en="★ New">★ Nuevo</span></div><p data-en="High-precision topographic model: the project's centimeter-level baseline, captured before mobilizing anything.">Modelo topográfico de alta precisión: la base centimétrica del proyecto, levantada antes de movilizar nada.</p></div>
-      <div class="phase-item reveal"><div class="phase-head"><span class="pn" data-en="PHASE 02">FASE 02</span><h3 data-en="Pre-Mobilization">Pre-Movilización</h3></div><p data-en="Building on the LiDAR analysis: capture of existing conditions, boundary confirmation and logistics coordination before the first stone.">Sobre el análisis LiDAR: captura de condiciones existentes, confirmación de linderos y coordinación logística antes de la primera piedra.</p></div>
-      <div class="phase-item reveal"><div class="phase-head"><span class="pn" data-en="PHASE 03">FASE 03</span><h3 data-en="Clearing &amp; Earthworks">Limpieza y Movimiento de Tierra</h3></div><p data-en="Tracking of cuts, fills and topography for progress reports, budgeting and accountability.">Seguimiento de cortes, rellenos y topografía para reportes de avance, presupuesto y presentación de cuentas.</p></div>
-      <div class="phase-item reveal"><div class="phase-head"><span class="pn" data-en="PHASE 04">FASE 04</span><h3 data-en="Infrastructure">Infraestructura</h3></div><p data-en="Documentation of water, storm and sewer systems, integrated with 2D and 3D plans.">Documentación de acueductos, sistemas pluviales y sanitarios, integrada con planos 2D y 3D.</p></div>
-      <div class="phase-item reveal"><div class="phase-head"><span class="pn" data-en="PHASE 05">FASE 05</span><h3 data-en="Concrete &amp; Steel">Concreto y Acero</h3></div><p data-en="Virtual inspection of structures: levels, footings, beams, columns and concrete pours with precision.">Inspección virtual de estructuras: niveles, zapatas, vigas, columnas y vaciados de concreto con precisión.</p></div>
-      <div class="phase-item reveal"><div class="phase-head"><span class="pn" data-en="PHASE 06">FASE 06</span><h3 data-en="Facades &amp; Roofs">Fachadas y Techos</h3></div><p data-en="Safe exterior inspections and a record of waterproofing on roofs and walls.">Inspecciones exteriores seguras y registro de instalaciones de impermeabilización en techos y paredes.</p></div>
-      <div class="phase-item reveal"><div class="phase-head"><span class="pn" data-en="PHASE 07">FASE 07</span><h3 data-en="Interior Details">Detalles Interiores</h3></div><p data-en="Verification of mechanical, electrical and plumbing installations before closing walls, with less rework.">Verificación de instalaciones mecánicas, eléctricas y de plomería antes de cerrar paredes, con menos retrabajos.</p></div>
+    <div class="svc-extra reveal">
+      <span class="lab" data-en="Also on demand">También a medida</span>
+      <span data-en="Traffic studies from aerial video">Estudios de tráfico desde video aéreo</span>
+      <span data-en="Thermography">Termografía</span>
+      <span data-en="Structure inspection">Inspección de estructuras</span>
+      <span data-en="Signed survey report for public tenders">Memoria de levantamiento firmada para licitaciones</span>
+      <span data-en="Drone program implementation">Implementación de programas de drones</span>
     </div>
   </section>
 
   <!-- ============ LIDAR SPOTLIGHT ============ -->
   <section id="lidar" class="section lidar">
     <div class="lidar-frame reveal">
-      <span class="lidar-badge" data-en="★ New service">★ Nuevo servicio</span>
+      <span class="lidar-badge" data-en="Core service · Topography for engineering">Servicio principal · Topografía para ingeniería</span>
       <h2 data-en="Drone <span>LiDAR</span> Survey">Levantamiento <span>LiDAR</span> con Drone</h2>
       <div class="lidar-grid">
         <div class="lidar-copy">
@@ -800,19 +877,24 @@ body{ font-size:17px; line-height:1.7; }
           <div class="lidar-hardware">
             <span class="lidar-chip">▲ DJI Matrice 400 RTK</span>
             <span class="lidar-chip">◆ Zenmuse L3</span>
+            <span class="lidar-chip">● PPK + GNSS</span>
+            <span class="lidar-chip">◎ UTM 17N</span>
           </div>
 
           <div class="lidar-compare">
             <h4 data-en="LiDAR vs. Photogrammetry">LiDAR vs. Fotogrametría</h4>
-            <p data-en="Photogrammetry is ideal for visible surfaces and open areas. LiDAR is the answer when there's dense vegetation, sub-decimeter topographic precision is required, or a hydrological analysis is needed.">La fotogrametría es ideal para superficies visibles y áreas despejadas. El LiDAR es la solución cuando hay vegetación densa, se requiere precisión topográfica sub-decimétrica, o un análisis hidrológico.</p>
+            <p data-en="Photogrammetry is ideal for visible surfaces and open areas. LiDAR is the answer when there's dense vegetation, sub-decimeter topographic precision is required, or a hydrological analysis is needed. We fly both in a single mobilization, with PPK and GNSS control points on the project network.">La fotogrametría es ideal para superficies visibles y áreas despejadas. El LiDAR es la solución cuando hay vegetación densa, se requiere precisión topográfica sub-decimétrica, o un análisis hidrológico. Volamos ambos en una sola movilización, con PPK y puntos de control GNSS en la red del proyecto.</p>
           </div>
 
-          <p class="lidar-apps-h" data-en="Generates engineering value for">Genera valor de ingeniería para</p>
+          <p class="lidar-apps-h" data-en="Projects where we already do it">Proyectos donde ya lo hacemos</p>
           <div class="lidar-apps">
+            <span class="lidar-app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 9 4M20 20 15 4M12 8v2M12 13v2M12 18v2"/></svg><span data-en="Road corridors">Corredores viales</span></span>
+            <span class="lidar-app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M5 7h14M7 7l-2 5M17 7l2 5M9 7l-1 5M15 7l1 5"/></svg><span data-en="Power lines">Líneas eléctricas</span></span>
+            <span class="lidar-app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.6 6 10a6 6 0 0 1-12 0c0-3.4 6-10 6-10Z"/></svg><span data-en="Water &amp; drainage">Acueductos y drenajes</span></span>
+            <span class="lidar-app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20 9 4l4 9 3-5 5 12Z"/><path d="M3 16h18"/></svg><span data-en="Subdivisions &amp; urbanism">Lotificaciones y urbanismo</span></span>
             <span class="lidar-app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg><span data-en="Earthworks">Movimiento de tierra</span></span>
-            <span class="lidar-app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.6 6 10a6 6 0 0 1-12 0c0-3.4 6-10 6-10Z"/></svg><span data-en="Hydrology">Hidrología</span></span>
-            <span class="lidar-app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg><span data-en="Sun &amp; shading">Asoleamiento</span></span>
-            <span class="lidar-app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h5v-5h5v-5h5v-5h3"/></svg><span data-en="Terracing">Terracería</span></span>
+            <span class="lidar-app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12c-4 0-7-3-7-7 4 0 7 3 7 7Z"/><path d="M12 15c0-4 3-7 7-7 0 4-3 7-7 7Z"/></svg><span data-en="Environmental impact studies">Estudios de impacto ambiental</span></span>
+            <span class="lidar-app"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/></svg><span data-en="Public tenders">Licitaciones públicas</span></span>
           </div>
         </div>
 
@@ -830,8 +912,10 @@ body{ font-size:17px; line-height:1.7; }
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Digital Terrain Model (DTM)">Modelo Digital de Terreno (DTM)</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Digital Surface Model (DSM)">Modelo Digital de Superficie (DSM)</span></li>
               <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Contour lines">Curvas de nivel</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Georeferenced orthomosaics">Ortomosaicos georreferenciados</span></li>
-              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-en="CAD, GIS &amp; KMZ files">Archivos CAD, GIS y KMZ</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Contours at 0.25, 0.5 or 1 m">Curvas a 0.25, 0.5 o 1 m</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Georeferenced orthomosaic (GeoTIFF)">Ortomosaico georreferenciado (GeoTIFF)</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Civil 3D, LandXML, DWG, SHP &amp; KMZ">Civil 3D, LandXML, DWG, SHP y KMZ</span></li>
+              <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span data-en="Control report: GCPs, residuals, survey memo">Informe de control: puntos, residuales y memoria</span></li>
             </ul>
           </div>
         </div>
@@ -860,16 +944,24 @@ body{ font-size:17px; line-height:1.7; }
         </div>
       </div>
 
-      <p class="lidar-tip" data-en="💡 Tip: start with the <strong>LiDAR Survey</strong> to get a high-precision base topographic model; <strong>Pre-Mobilization</strong> and everything else build from there.">💡 Tip: empieza con el <strong>Levantamiento LiDAR</strong> para obtener un modelo topográfico base de alta precisión; la <strong>Pre-Movilización</strong> y todo lo demás parten de ahí.</p>
+      <p class="lidar-tip" data-en="For engineering firms with recurring work: we act as your <strong>geospatial subcontractor</strong>, with a preferential rate per hectare or kilometer, a <strong>signed and sealed survey report</strong> for tenders, and the same platform for your end client to consult the data.">Para firmas de ingeniería con trabajo recurrente: trabajamos como tu <strong>subcontratista geoespacial</strong>, con tarifa preferencial por hectárea o kilómetro, <strong>memoria de levantamiento firmada y sellada</strong> para licitaciones, y la misma plataforma para que tu cliente final consulte los datos.</p>
     </div>
   </section>
 
-  <!-- ============ PROYECTOS (galería con submenú) ============ -->
-  <section id="proyectos" class="section projects-gallery">
+  <!-- ============ AVANCE DE OBRA (método condensado + galería) ============ -->
+  <section id="avance" class="section projects-gallery">
     <div class="section-head reveal">
-      <p class="section-label"><span class="num">07</span> <span data-en="Project gallery">Galería de obra</span></p>
-      <h2 data-en="Our <em>projects</em>">Nuestros <em>proyectos</em></h2>
-      <p class="section-intro" data-en="This is how we document each type of work from the air. Pick a category to see real drone-captured examples.">Así documentamos cada tipo de obra desde el aire. Selecciona una categoría para ver ejemplos reales captados con dron.</p>
+      <p class="section-label"><span class="num">05</span> <span data-en="Site documentation">Documentación de obra</span></p>
+      <h2 data-en="Progress <em>tracking</em>, stage by stage">Avance de <em>obra</em>, etapa por etapa</h2>
+      <p class="section-intro" data-en="Periodic flights and ground capture on one platform: every stage of the work documented, measured and comparable date against date, from pre-mobilization to interior details. Pick a stage to see real examples.">Vuelos periódicos y captura terrestre en una misma plataforma: cada etapa de la obra documentada, medida y comparable fecha contra fecha, desde la pre-movilización hasta los detalles interiores. Selecciona una etapa para ver ejemplos reales.</p>
+    </div>
+
+    <div class="method-strip stagger reveal">
+      <div class="method-step"><span class="mn">01</span><h4 data-en="Aerial &amp; ground capture">Captura aérea y terrestre</h4></div>
+      <div class="method-step"><span class="mn">02</span><h4 data-en="Photogrammetry &amp; 3D model">Fotogrametría y modelo 3D</h4></div>
+      <div class="method-step"><span class="mn">03</span><h4 data-en="Alignment with the plans">Alineación con los planos</h4></div>
+      <div class="method-step"><span class="mn">04</span><h4 data-en="Remote inspection &amp; volumes">Inspección remota y volúmenes</h4></div>
+      <div class="method-step"><span class="mn">05</span><h4 data-en="Dated reports &amp; history">Reportes e historial por fecha</h4></div>
     </div>
 
     <div class="proj reveal">
@@ -879,7 +971,7 @@ body{ font-size:17px; line-height:1.7; }
         <button class="proj-tab" data-panel="concreto" role="tab" aria-selected="false"><span class="tn">03</span><span data-en="Concrete &amp; Steel">Concreto y Acero</span></button>
         <button class="proj-tab" data-panel="fachadas" role="tab" aria-selected="false"><span class="tn">04</span><span data-en="Facades &amp; Roofs">Fachadas y Techos</span></button>
         <button class="proj-tab" data-panel="internos" role="tab" aria-selected="false"><span class="tn">05</span><span data-en="Interior Details">Detalles Internos</span></button>
-        <button class="proj-tab" data-panel="viales" role="tab" aria-selected="false"><span class="tn">06</span><span data-en="Road Corridors">Corredores Viales</span></button>
+        <button class="proj-tab" data-panel="viales" role="tab" aria-selected="false"><span class="tn">06</span><span data-en="Traffic Studies">Estudios de Tráfico</span></button>
       </div>
 
       <div class="proj-panels">
@@ -987,6 +1079,7 @@ body{ font-size:17px; line-height:1.7; }
               <ul class="proj-points">
                 <li data-en="Mechanical, electrical and plumbing installations">Instalaciones mecánicas, eléctricas y de plomería</li>
                 <li data-en="Wall framing and general progress">Enmarcado de paredes y avances generales</li>
+                <li data-en="360° walkthroughs and panoramas indexed on the plans">Recorridos y panorámicas 360° indexados sobre los planos</li>
                 <li data-en="Prevention of costly rework">Prevención de retrabajos costosos</li>
               </ul>
             </div>
@@ -1006,7 +1099,7 @@ body{ font-size:17px; line-height:1.7; }
               <figcaption class="corridor-tag" data-en="Bottlenecks detected <b>·</b> georeferenced">Cuellos de botella detectados <b>·</b> georreferenciados</figcaption>
             </figure>
             <div class="corridor-copy">
-              <span class="eyebrow" style="display:block;margin-bottom:14px;" data-en="★ New service">★ Nuevo servicio</span>
+              <span class="eyebrow" style="display:block;margin-bottom:14px;" data-en="On demand · Road engineering">A medida · Ingeniería vial</span>
               <h3 style="font-family:var(--display);font-weight:400;text-transform:uppercase;font-size:clamp(1.6rem,3.4vw,2.25rem);line-height:1.05;letter-spacing:.02em;margin-bottom:18px;" data-en="Road Corridor Analysis">Análisis de Corredores Viales</h3>
               <div class="corridor-specs">
                 <div><div class="n">≈8.5</div><div class="l" data-en="km of corridor">km de corredor</div></div>
@@ -1036,12 +1129,79 @@ body{ font-size:17px; line-height:1.7; }
         </article>
       </div>
     </div>
+
+    <div class="modes-grid stagger">
+      <article class="eco-card teal reveal" style="--i:0"><h3 data-en='<span>From the air</span>Drone flights by stage'><span>Desde el aire</span>Vuelos de dron por etapa</h3><p data-en="Orthomosaics, 3D models and surface comparison between flights: cut, fill, stockpiles and percent progress per work front. Scheduled by milestone or under a retainer.">Ortomosaicos, modelos 3D y comparación de superficies entre vuelos: corte, relleno, acopios y porcentaje de avance por frente. Programados por hito o bajo retainer.</p></article>
+      <article class="eco-card blue reveal" style="--i:1"><h3 data-en='<span>At ground level</span>Ground capture'><span>A nivel de piso</span>Captura terrestre</h3><p data-en="360° walkthroughs and panoramas, detail photos and field reports for what stays under the roof and inside the walls. Self-capture with your own crew (we supply the camera and training) or managed by a Top Drone technician.">Recorridos y panorámicas 360°, fotografías de detalle y reportes de campo para lo que queda bajo techo y dentro de las paredes. Autocaptura con tu propio equipo (entregamos la cámara y la capacitación) o gestionada por un técnico de Top Drone.</p></article>
+    </div>
+  </section>
+
+  <!-- ============ DESCARGAS (fichas PDF) ============ -->
+  <section id="descargas" class="section downloads">
+    <div class="section-head reveal">
+      <p class="section-label"><span class="num">06</span> <span data-en="Technical sheets">Fichas técnicas</span></p>
+      <h2 data-en="Download our <em>service sheets</em>">Descarga nuestras <em>fichas de servicio</em></h2>
+      <p class="section-intro" data-en="Five two-page PDFs, ready to share with your team or your client: what each study answers, how it works, deliverables and real cases.">Cinco fichas de dos páginas en PDF, listas para compartir con tu equipo o tu cliente: qué responde cada estudio, cómo funciona, entregables y casos reales.</p>
+    </div>
+    <div class="docs-grid stagger">
+      <article class="doc-card reveal" style="--i:0">
+        <a class="doc-thumb" href="assets/docs/TopDrone-Servicios-Ingenieria.pdf" download aria-label="Servicios para ingeniería (PDF)"><span class="doc-kind">PDF</span><img src="assets/img/docs/TopDrone-Servicios-Ingenieria.jpg" alt="Portada de la ficha: Servicios para ingeniería" loading="lazy" width="680" height="880"></a>
+        <div class="doc-body">
+          <p class="doc-for" data-en="Engineering firms">Firmas de ingeniería</p>
+          <h3 data-en="Services for engineering">Servicios para ingeniería</h3>
+          <p data-en="LiDAR topography, inventory and progress tracking: deliverables, where it applies and how we work.">Topografía LiDAR, inventario y avance de obra: entregables, dónde aplica y cómo trabajamos.</p>
+          <p class="doc-meta"><span data-en="2 pages">2 páginas</span> · 0.4 MB · ES</p>
+          <a class="doc-btn" href="assets/docs/TopDrone-Servicios-Ingenieria.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="Download">Descargar</span></a>
+        </div>
+      </article>
+      <article class="doc-card reveal" style="--i:1">
+        <a class="doc-thumb" href="assets/docs/TopDrone-Desarrollo-de-Lotes.pdf" download aria-label="LiDAR para desarrollo de lotes (PDF)"><span class="doc-kind">PDF</span><img src="assets/img/docs/TopDrone-Desarrollo-de-Lotes.jpg" alt="Portada de la ficha: LiDAR para desarrollo de lotes" loading="lazy" width="680" height="880"></a>
+        <div class="doc-body">
+          <p class="doc-for" data-en="Developers · Landowners">Promotores · Desarrolladores</p>
+          <h3 data-en="LiDAR for land development">LiDAR para desarrollo de lotes</h3>
+          <p data-en="Where to build, what it costs to prepare and what the EIA requires, with success stories.">Dónde conviene construir, cuánto cuesta prepararlo y qué exige el EIA, con casos de éxito.</p>
+          <p class="doc-meta"><span data-en="2 pages">2 páginas</span> · 0.4 MB · ES</p>
+          <a class="doc-btn" href="assets/docs/TopDrone-Desarrollo-de-Lotes.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="Download">Descargar</span></a>
+        </div>
+      </article>
+      <article class="doc-card reveal" style="--i:2">
+        <a class="doc-thumb" href="assets/docs/TopDrone-Due-Diligence-Ambiental.pdf" download aria-label="Due diligence de lotes (PDF)"><span class="doc-kind">PDF</span><img src="assets/img/docs/TopDrone-Due-Diligence-Ambiental.jpg" alt="Portada de la ficha: Due diligence de lotes" loading="lazy" width="680" height="880"></a>
+        <div class="doc-body">
+          <p class="doc-for" data-en="Legal · EIA · Energy">Legal · EIA · Energía</p>
+          <h3 data-en="Lot due diligence">Due diligence de lotes</h3>
+          <p data-en="Vegetation and terrain measured before signing, investing or applying for a permit.">Vegetación y terreno medidos antes de firmar, invertir o pedir un permiso.</p>
+          <p class="doc-meta"><span data-en="2 pages">2 páginas</span> · 0.2 MB · ES</p>
+          <a class="doc-btn" href="assets/docs/TopDrone-Due-Diligence-Ambiental.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="Download">Descargar</span></a>
+        </div>
+      </article>
+      <article class="doc-card reveal" style="--i:3">
+        <a class="doc-thumb" href="assets/docs/TopDrone-Registro-Digital-Infraestructura.pdf" download aria-label="Registro digital de infraestructura (PDF)"><span class="doc-kind">PDF</span><img src="assets/img/docs/TopDrone-Registro-Digital-Infraestructura.jpg" alt="Portada de la ficha: Registro digital de infraestructura" loading="lazy" width="680" height="880"></a>
+        <div class="doc-body">
+          <p class="doc-for" data-en="Administrations · Communities">Administraciones · Comunidades</p>
+          <h3 data-en="Digital infrastructure registry">Registro digital de infraestructura</h3>
+          <p data-en="Twelve layers of georeferenced inventory and the platform where the data lives.">Doce capas de inventario georreferenciado y la plataforma donde viven los datos.</p>
+          <p class="doc-meta"><span data-en="2 pages">2 páginas</span> · 0.4 MB · ES</p>
+          <a class="doc-btn" href="assets/docs/TopDrone-Registro-Digital-Infraestructura.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="Download">Descargar</span></a>
+        </div>
+      </article>
+      <article class="doc-card reveal" style="--i:4">
+        <a class="doc-thumb" href="assets/docs/TopDrone-Captura-Terrestre.pdf" download aria-label="Captura terrestre de avance de obra (PDF)"><span class="doc-kind">PDF</span><img src="assets/img/docs/TopDrone-Captura-Terrestre.jpg" alt="Portada de la ficha: Captura terrestre de avance de obra" loading="lazy" width="680" height="880"></a>
+        <div class="doc-body">
+          <p class="doc-for" data-en="Contractors · CMs · Inspectors">Contratistas · PMC · Inspectores</p>
+          <h3 data-en="Ground capture of site progress">Captura terrestre de avance de obra</h3>
+          <p data-en="360° walkthroughs, field reports and the two modes: self-capture or managed.">Recorridos 360°, reportes de campo y las dos modalidades: autocaptura o gestionada.</p>
+          <p class="doc-meta"><span data-en="2 pages">2 páginas</span> · 0.3 MB · ES</p>
+          <a class="doc-btn" href="assets/docs/TopDrone-Captura-Terrestre.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="Download">Descargar</span></a>
+        </div>
+      </article>
+    </div>
+    <p class="docs-note reveal" data-en="Need a sample with real data from current projects? <a href='#contacto'>Write to us</a> and we'll show you results on screen, no commitment.">¿Necesitas una muestra con datos reales de proyectos actuales? <a href="#contacto">Escríbenos</a> y te mostramos resultados en pantalla, sin compromiso.</p>
   </section>
 
   <!-- ============ TESTIMONIALES ============ -->
   <section class="section testimonials">
     <div class="section-head reveal">
-      <p class="section-label"><span class="num">08</span> <span data-en="Voices from the field">Voces del campo</span></p>
+      <p class="section-label"><span class="num">07</span> <span data-en="Voices from the field">Voces del campo</span></p>
       <h2 data-en="<em>Top!</em> testimonials">Testimoniales <em>Top!</em></h2>
     </div>
     <div class="testimonial-grid stagger">
@@ -1066,7 +1226,7 @@ body{ font-size:17px; line-height:1.7; }
   <!-- ============ CLIENTES ============ -->
   <section id="clientes" class="section clients">
     <div class="section-head reveal">
-      <p class="section-label"><span class="num">09</span> <span data-en="Flight registry">Registro de vuelo</span></p>
+      <p class="section-label"><span class="num">08</span> <span data-en="Flight registry">Registro de vuelo</span></p>
       <h2 data-en="Clients who already <em>flew with us</em>">Clientes que ya <em>volaron con nosotros</em></h2>
     </div>
     <div class="client-wall stagger">
@@ -1095,13 +1255,13 @@ body{ font-size:17px; line-height:1.7; }
   <!-- ============ POR QUÉ ELEGIRNOS ============ -->
   <section class="section why">
     <div class="section-head reveal">
-      <p class="section-label"><span class="num">10</span> <span data-en="Competitive edge">Ventaja competitiva</span></p>
+      <p class="section-label"><span class="num">09</span> <span data-en="Competitive edge">Ventaja competitiva</span></p>
       <h2 data-en="Why <em>choose us?</em>">¿Por qué <em>elegirnos?</em></h2>
     </div>
     <div class="why-grid stagger">
-      <article class="why-card reveal" style="--i:0"><span class="wn">01</span><h3 data-en="Proven Experience">Experiencia Comprobada</h3><p data-en="A solid track record of successful projects in the construction sector.">Sólido historial de proyectos exitosos en el sector de la construcción.</p></article>
+      <article class="why-card reveal" style="--i:0"><span class="wn">01</span><h3 data-en="Proven Experience">Experiencia Comprobada</h3><p data-en="A solid track record in engineering, construction and infrastructure projects across Panama.">Sólido historial en proyectos de ingeniería, construcción e infraestructura en todo Panamá.</p></article>
       <article class="why-card reveal" style="--i:1"><span class="wn">02</span><h3 data-en="Satisfied Clients">Clientes Satisfechos</h3><p data-en="A growing base of partners who highlight our precision, reliability and impact.">Una base creciente de socios que destacan nuestra precisión, confiabilidad e impacto.</p></article>
-      <article class="why-card reveal" style="--i:2"><span class="wn">03</span><h3 data-en="Cutting-edge Technology">Tecnología de Vanguardia</h3><p data-en="High-resolution aerial mapping, 3D modeling and, now, LiDAR surveys.">Mapeo aéreo de alta resolución, modelado 3D y, ahora, levantamientos LiDAR.</p></article>
+      <article class="why-card reveal" style="--i:2"><span class="wn">03</span><h3 data-en="Cutting-edge Technology">Tecnología de Vanguardia</h3><p data-en="Airborne LiDAR with geodetic control, photogrammetry, ground capture and our own platform.">LiDAR aerotransportado con control geodésico, fotogrametría, captura terrestre y plataforma propia.</p></article>
       <article class="why-card reveal" style="--i:3"><span class="wn">04</span><h3 data-en="Time &amp; Cost Savings">Ahorro de Tiempo y Costos</h3><p data-en="Faster collection, reduced costs and minimized delays.">Recolección más rápida, costos reducidos y retrasos minimizados.</p></article>
       <article class="why-card reveal" style="--i:4"><span class="wn">05</span><h3 data-en="Security &amp; Confidentiality">Seguridad y Confidencialidad</h3><p data-en="Your information, protected under the highest electronic-security standards.">Tu información, resguardada bajo los más altos estándares de seguridad electrónica.</p></article>
     </div>
@@ -1110,7 +1270,7 @@ body{ font-size:17px; line-height:1.7; }
   <!-- ============ PROGRAMAS AVANZADOS ============ -->
   <section class="section programs">
     <div class="section-head reveal">
-      <p class="section-label"><span class="num">11</span> <span data-en="To go further">Para ir más allá</span></p>
+      <p class="section-label"><span class="num">10</span> <span data-en="To go further">Para ir más allá</span></p>
       <h2 data-en="<em>Advanced</em> programs">Programas <em>avanzados</em></h2>
       <p class="section-intro" data-en="Ask about our long-term collaboration options.">Pregunta por nuestras opciones de colaboración a largo plazo.</p>
     </div>
@@ -1137,6 +1297,17 @@ body{ font-size:17px; line-height:1.7; }
           <li data-en="Workflow implementation">Implementación de workflows</li>
         </ul>
       </article>
+      <article class="program-card alt2">
+        <h3 data-en="Geospatial Subcontracting">Subcontratación Geoespacial</h3>
+        <p class="program-sub" data-en="For engineering firms with recurring survey work">Para firmas de ingeniería con levantamientos recurrentes</p>
+        <ul>
+          <li data-en="Preferential rate per hectare or kilometer">Tarifa preferencial por hectárea o kilómetro</li>
+          <li data-en="Signed and sealed survey report for tenders">Memoria de levantamiento firmada y sellada para licitaciones</li>
+          <li data-en="Delivery in Civil 3D, LandXML, LAS, DWG, GeoTIFF">Entrega en Civil 3D, LandXML, LAS, DWG, GeoTIFF</li>
+          <li data-en="Platform access for your end client">Acceso a la plataforma para tu cliente final</li>
+          <li data-en="Sample with real data from current projects">Muestra con datos reales de proyectos actuales</li>
+        </ul>
+      </article>
     </div>
   </section>
 
@@ -1144,15 +1315,19 @@ body{ font-size:17px; line-height:1.7; }
   <section id="contacto" class="section cta-final">
     <p class="eyebrow reveal" data-en="Mission: contact">Misión: contacto</p>
     <h2 class="reveal" data-en="Ready to see your project<br>from <span class=&quot;accent&quot;>another altitude</span>?">¿Listo para ver tu proyecto<br>desde <span class="accent">otra altura</span>?</h2>
-    <p class="reveal" data-en="Let's talk about your next survey, inspection or aerial monitoring program. We'll coordinate the first diagnostic flight.">Hablemos de tu próximo levantamiento, inspección o programa de monitoreo aéreo. Coordinamos el primer vuelo de diagnóstico.</p>
+    <p class="reveal" data-en="Let's talk about your next survey, inspection or documentation program. Send us the lot polygon (KMZ or plan) and we'll prepare a scope and proposal within 48 hours.">Hablemos de tu próximo levantamiento, inspección o programa de documentación. Envíanos el polígono (KMZ o plano) y te preparamos un alcance y una propuesta en 48 horas.</p>
     <div class="cta-contacts reveal">
-      <a href="https://wa.me/50764913744" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.5 3.62 1.45 5.15L2 22l5.1-1.55a9.86 9.86 0 0 0 4.94 1.33h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2Zm0 18.06h-.01a8.2 8.2 0 0 1-4.18-1.14l-.3-.18-3.03.92.92-2.95-.2-.31a8.2 8.2 0 0 1-1.26-4.39c0-4.53 3.69-8.22 8.23-8.22 2.2 0 4.27.86 5.82 2.41a8.17 8.17 0 0 1 2.4 5.82c0 4.53-3.69 8.22-8.22 8.22Zm4.51-6.16c-.25-.12-1.46-.72-1.68-.8-.23-.08-.39-.12-.56.12-.16.25-.64.8-.79.96-.14.16-.29.18-.54.06-.25-.12-1.04-.38-1.98-1.22-.73-.65-1.22-1.45-1.37-1.7-.14-.25-.02-.38.11-.5.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.04-.33-.04-.45-.08-.12-.5-1.2-.69-1.65-.18-.43-.37-.37-.51-.38-.13-.01-.28-.01-.43-.01-.15 0-.39.06-.6.29-.2.23-.78.76-.78 1.86 0 1.1.8 2.16.91 2.31.12.16 1.6 2.45 3.88 3.34 1.92.75 2.3.6 2.72.56.41-.04 1.33-.54 1.51-1.07.19-.53.19-.98.13-1.07-.05-.09-.21-.15-.45-.27Z"/></svg>
+      <a class="wa" href="https://wa.me/50764913744" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 21l2.1-5.2A8.5 8.5 0 1 1 21 11.5Z"/><path d="M9 9.5c.3 2.4 2.3 4.4 4.7 4.7l1.3-1.3 2 .8-.4 1.8c-3.9.6-8.3-3.8-7.7-7.7l1.8-.4.8 2L9 9.5Z"/></svg>
         WhatsApp +(507) 6491-3744
       </a>
       <a href="mailto:atencion@topdroneconsultants.com">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
         atencion@topdroneconsultants.com
+      </a>
+      <a href="#descargas">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
+        <span data-en="Service sheets (PDF)">Fichas de servicio (PDF)</span>
       </a>
     </div>
     <div class="cta-pillars reveal">
@@ -1164,7 +1339,7 @@ body{ font-size:17px; line-height:1.7; }
 <footer class="footer">
   <div class="footer-inner">
     <img class="logo-img" src="assets/img/logo-topdrone-white.png" alt="TopDrone Consultants" width="655" height="150" style="height:34px;">
-    <p data-en="© 2026 TopDrone Consultants · Panama · Smart Aerial Solutions for Construction and Urban Development">© 2026 TopDrone Consultants · Panamá · Soluciones Aéreas Inteligentes para la Construcción y el Desarrollo Urbano</p>
+    <p data-en="© 2026 TopDrone Consultants · Panama · Smart Aerial Solutions for Engineering, Construction and Urban Development<br>TopDrone Consultants is a brand of Startup Consulting, S.A.">© 2026 TopDrone Consultants · Panamá · Soluciones Aéreas Inteligentes para la Ingeniería, la Construcción y el Desarrollo Urbano<br>TopDrone Consultants es una marca de Startup Consulting, S.A.</p>
     <span class="footer-coords">08°59′ N · 79°31′ W</span>
   </div>
 </footer>
