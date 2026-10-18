@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TopDrone Consultants · Topografía LiDAR, Fotogrametría y Documentación de Obra en Panamá</title>
-<meta name="description" content="Topografía LiDAR y fotogrametría con control geodésico, seguimiento de avance de obra, captura terrestre e inventarios georreferenciados para ingeniería, construcción y desarrollo urbano en Panamá." />
+<meta name="description" content="Topografía LiDAR y fotogrametría con control geodésico, documentación y análisis de obras civiles, captura terrestre e inventarios georreferenciados para ingeniería, construcción y desarrollo urbano en Panamá." />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%230a1830'/%3E%3Ccircle cx='24' cy='24' r='14' fill='none' stroke='%232bb1f2' stroke-width='3'/%3E%3Ccircle cx='24' cy='24' r='3' fill='%232bb1f2'/%3E%3C/svg%3E" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -555,17 +555,17 @@ body{ font-size:17px; line-height:1.7; }
 .stats-pin .lbl{ font-family:var(--mono); font-size:.64rem; letter-spacing:.16em; text-transform:uppercase; color:var(--sky-bright); white-space:nowrap; }
 @media (max-width:760px){ .stats-pin{ display:none; } }
 /* ============ SERVICIOS (catálogo) ============ */
-.svc-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
-.svc-card{ position:relative; display:flex; flex-direction:column; padding:30px 26px 26px; background:var(--navy-card); border:1px solid var(--line); border-radius:2px; transition:transform .45s var(--ease), border-color .4s, box-shadow .4s; }
+.svc-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.svc-card{ position:relative; display:flex; flex-direction:column; padding:26px 22px 22px; background:var(--navy-card); border:1px solid var(--line); border-radius:2px; transition:transform .45s var(--ease), border-color .4s, box-shadow .4s; }
 .svc-card:hover{ transform:translateY(-6px); border-color:var(--line-strong); box-shadow:0 24px 60px -24px rgba(0,0,0,.6); }
 .svc-top{ display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:18px; }
 .svc-icon{ width:46px; height:46px; display:grid; place-items:center; border:1px solid var(--line-strong); border-radius:3px; background:rgba(43,177,242,.07); color:var(--sky-bright); }
 .svc-icon svg{ width:24px; height:24px; }
 .svc-for{ font-family:var(--mono); font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; color:var(--text-faint); text-align:right; }
-.svc-card h3{ font-family:var(--body); font-weight:700; font-size:1.22rem; line-height:1.25; margin-bottom:10px; }
-.svc-card > p{ color:var(--text-dim); font-size:.98rem; margin-bottom:18px; }
+.svc-card h3{ font-family:var(--body); font-weight:700; font-size:1.12rem; line-height:1.25; margin-bottom:10px; }
+.svc-card > p{ color:var(--text-dim); font-size:.93rem; margin-bottom:18px; }
 .svc-list{ display:flex; flex-direction:column; gap:9px; margin-bottom:22px; }
-.svc-list li{ display:flex; align-items:flex-start; gap:10px; font-size:.92rem; color:var(--text); }
+.svc-list li{ display:flex; align-items:flex-start; gap:10px; font-size:.88rem; color:var(--text); }
 .svc-list li::before{ content:""; flex-shrink:0; width:6px; height:6px; margin-top:8px; border:1px solid var(--sky); border-radius:1px; transform:rotate(45deg); }
 .svc-links{ margin-top:auto; display:flex; flex-wrap:wrap; gap:10px 18px; padding-top:16px; border-top:1px solid var(--line); }
 .svc-links a{ display:inline-flex; align-items:center; gap:7px; font-family:var(--mono); font-size:.74rem; letter-spacing:.1em; text-transform:uppercase; color:var(--sky-bright); text-decoration:none; transition:color .3s; }
@@ -575,7 +575,7 @@ body{ font-size:17px; line-height:1.7; }
 .svc-extra .lab{ font-family:var(--mono); font-size:.74rem; letter-spacing:.14em; text-transform:uppercase; color:var(--sky-bright); margin-right:6px; }
 .svc-extra span:not(.lab){ font-size:.94rem; color:var(--text-dim); }
 .svc-extra span:not(.lab)::before{ content:"◆"; color:var(--sky); font-size:.6rem; margin-right:9px; vertical-align:middle; }
-@media (max-width:980px){ .svc-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:1180px){ .svc-grid{ grid-template-columns:repeat(2,1fr); gap:22px; } }
 @media (max-width:620px){ .svc-grid{ grid-template-columns:1fr; } }
 
 /* ============ AVANCE DE OBRA (método compacto + modalidades) ============ */
@@ -622,16 +622,25 @@ body{ font-size:17px; line-height:1.7; }
 .program-card.alt2{ background:var(--navy-card); }
 .cta-contacts a.wa{ border-color:var(--sky); }
 
-/* ---------- Reduced motion: respect the OS-level preference ---------- */
-@media (prefers-reduced-motion: reduce){
-  *, *::before, *::after{
-    animation-duration:.001ms !important;
-    animation-iteration-count:1 !important;
-    transition-duration:.001ms !important;
-    scroll-behavior:auto !important;
-  }
-  .reveal{ opacity:1 !important; transform:none !important; }
-}
+/* ---------- Cotizador express (lotes) ---------- */
+.nav-links a{ white-space:nowrap; }
+@media (max-width:1180px){ .nav-status{ display:none; } }
+.nav-quote{ display:inline-flex; align-items:center; gap:7px; padding:9px 14px; border-radius:3px; background:var(--sky); color:var(--navy-deep) !important; font-family:var(--mono); font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; text-decoration:none; white-space:nowrap; transition:all .3s var(--ease); }
+.nav-quote:hover{ background:var(--sky-bright); transform:translateY(-2px); box-shadow:0 10px 26px -10px rgba(43,177,242,.7); }
+.nav-quote svg{ width:14px; height:14px; }
+@media (max-width:560px){ .nav-quote{ padding:8px 10px; } .nav-quote .t{ display:none; } }
+.hero-quote{ margin-top:22px; display:inline-flex; flex-wrap:wrap; align-items:center; gap:8px 12px; font-size:.94rem; color:var(--text-dim); }
+.hero-quote a{ display:inline-flex; align-items:center; gap:7px; color:var(--sky-bright); font-weight:600; text-decoration:none; border-bottom:1px solid var(--line-strong); padding-bottom:2px; transition:color .3s, border-color .3s; }
+.hero-quote a:hover{ color:var(--text); border-color:var(--sky-bright); }
+.hero-quote a svg{ width:15px; height:15px; }
+.quote-fab{ position:fixed; z-index:60; right:18px; bottom:18px; display:inline-flex; align-items:center; gap:10px; padding:13px 18px; border-radius:999px; background:var(--sky); color:var(--navy-deep); font-family:var(--mono); font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700; text-decoration:none; box-shadow:0 18px 40px -14px rgba(43,177,242,.75); transform:translateY(90px); opacity:0; transition:transform .5s var(--ease), opacity .4s, background .3s; }
+.quote-fab.show{ transform:translateY(0); opacity:1; }
+.quote-fab:hover{ background:var(--sky-bright); }
+.quote-fab .pulse{ width:9px; height:9px; border-radius:50%; background:var(--navy-deep); box-shadow:0 0 0 0 rgba(6,15,31,.5); animation:pulse-dot 2.2s infinite; }
+.quote-fab svg{ width:15px; height:15px; }
+@media (max-width:560px){ .quote-fab{ right:12px; bottom:12px; padding:12px 15px; font-size:.68rem; } }
+.btn-quote{ display:inline-flex; align-items:center; gap:9px; }
+.btn-quote svg{ width:15px; height:15px; }
 </style>
 </head>
 <body>
@@ -646,7 +655,7 @@ body{ font-size:17px; line-height:1.7; }
     <nav class="nav-links" id="navLinks">
       <a href="#servicios" data-en='<span class="idx">01</span>Services'><span class="idx">01</span>Servicios</a>
       <a href="#lidar" data-en='<span class="idx">02</span>LiDAR'><span class="idx">02</span>LiDAR</a>
-      <a href="#avance" data-en='<span class="idx">03</span>Site progress'><span class="idx">03</span>Avance de obra</a>
+      <a href="#avance" data-en='<span class="idx">03</span>Civil works'><span class="idx">03</span>Obras civiles</a>
       <a href="#descargas" data-en='<span class="idx">04</span>Downloads'><span class="idx">04</span>Descargas</a>
       <a href="#clientes" data-en='<span class="idx">05</span>Clients'><span class="idx">05</span>Clientes</a>
       <a href="#contacto" data-en='<span class="idx">06</span>Contact'><span class="idx">06</span>Contacto</a>
@@ -656,6 +665,7 @@ body{ font-size:17px; line-height:1.7; }
         <span class="status-dot" aria-hidden="true"></span>
         <span><span data-en="IN FLIGHT">EN VUELO</span> · <span id="coords">08°59'24"N 79°31'18"W</span></span>
       </div>
+      <a class="nav-quote" href="https://topdrone-cotizar.netlify.app/?utm_source=web&utm_medium=site&utm_content=nav" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg><span class="t" data-en="Quote your lot">Cotiza tu lote</span></a>
       <button class="lang-toggle" id="langToggle" aria-label="Language / Idioma">
         <span class="on" data-lang="es">ES</span><span data-lang="en">EN</span>
       </button>
@@ -690,6 +700,7 @@ body{ font-size:17px; line-height:1.7; }
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 4v16M5 13l7 7 7-7"/></svg>
         </a>
       </div>
+      <p class="hero-quote"><span data-en="Just need an orthomosaic of your lot?">¿Solo necesitas el ortomosaico de tu lote?</span> <a href="https://topdrone-cotizar.netlify.app/?utm_source=web&utm_medium=site&utm_content=hero" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6l6-3 6 3 6-3v15l-6 3-6-3-6 3Z"/><path d="M9 3v15M15 6v15"/></svg><span data-en="Draw it on the map and get a price in 1 minute">Dibújalo en el mapa y cotiza en 1 minuto</span></a></p>
     </div>
     <div class="hero-marquee" aria-hidden="true">
       <div class="marquee-track">
@@ -808,7 +819,7 @@ body{ font-size:17px; line-height:1.7; }
     <div class="section-head reveal">
       <p class="section-label"><span class="num">04</span> <span data-en="Service catalogue">Catálogo de servicios</span></p>
       <h2 data-en="Data for <em>every stage</em> of the project">Datos para <em>cada etapa</em> del proyecto</h2>
-      <p class="section-intro" data-en="From the raw lot to the finished work and its maintenance: LiDAR topography, progress documentation, ground capture and georeferenced inventories, all on one platform and in the formats your team already uses.">Del lote en bruto a la obra terminada y su mantenimiento: topografía LiDAR, documentación de avance, captura terrestre e inventarios georreferenciados, todo en una misma plataforma y en los formatos que tu equipo ya usa.</p>
+      <p class="section-intro" data-en="From the raw lot to the finished work and its maintenance: LiDAR topography, civil works documentation and analysis, ground capture, volumes and georeferenced inventories, all on one platform and in the formats your team already uses.">Del lote en bruto a la obra terminada y su mantenimiento: topografía LiDAR, documentación y análisis de obras civiles, captura terrestre, volúmenes e inventarios georreferenciados, todo en una misma plataforma y en los formatos que tu equipo ya usa.</p>
     </div>
     <div class="svc-grid stagger">
       <article class="svc-card reveal" style="--i:0">
@@ -820,8 +831,8 @@ body{ font-size:17px; line-height:1.7; }
       </article>
       <article class="svc-card reveal" style="--i:1">
         <div class="svc-top"><span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V9l7-5 7 5v12"/><path d="M9 21v-6h6v6"/><path d="M12 9v2"/></svg></span><span class="svc-for" data-en="Construction">Construcción</span></div>
-        <h3 data-en="Construction progress tracking">Seguimiento de avance de obra</h3>
-        <p data-en="Periodic flights with surface comparison: cut, fill, stockpiles and percent progress per work front, aligned with the plans.">Vuelos periódicos con comparación de superficies: corte, relleno, acopios y porcentaje de avance por frente, alineados con los planos.</p>
+        <h3 data-en="Civil works documentation &amp; analysis">Documentación y análisis de obras civiles</h3>
+        <p data-en="Not a drone video: periodic georeferenced flights with surface comparison, cut and fill, stockpiles and percent progress per work front, measured against the plans.">No es un video de dron: vuelos periódicos georreferenciados con comparación de superficies, corte y relleno, acopios y porcentaje de avance por frente, medidos contra los planos.</p>
         <ul class="svc-list"><li data-en="From pre-mobilization to interior details">De la pre-movilización a los detalles interiores</li><li data-en="Volumes between flights and early detection of deviations">Volúmenes entre vuelos y detección temprana de desviaciones</li><li data-en="Reports for pay applications, audits and certifications">Reportes para cortes de obra, auditorías y certificaciones</li></ul>
         <div class="svc-links"><a href="#avance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-en="See how we do it">Ver cómo lo hacemos</span></a></div>
       </article>
@@ -844,7 +855,7 @@ body{ font-size:17px; line-height:1.7; }
         <h3 data-en="Land development">Desarrollo de lotes</h3>
         <p data-en="The real ground beneath the vegetation, ready to decide where roads, pads and drainage go, and what it costs to prepare.">El terreno real debajo de la vegetación, listo para decidir dónde van calles, plataformas y drenaje, y cuánto cuesta prepararlo.</p>
         <ul class="svc-list"><li data-en="Slopes by zone, flood-prone areas and streams with buffers">Pendientes por zona, áreas inundables y cauces con sus franjas</li><li data-en="Cut and fill per stage on the real terrain">Corte y relleno por etapa sobre el terreno real</li><li data-en="Vegetation cover in hectares for the EIA">Cobertura vegetal en hectáreas para el EIA</li></ul>
-        <div class="svc-links"><a href="assets/docs/TopDrone-Desarrollo-de-Lotes.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="PDF sheet">Ficha PDF</span></a></div>
+        <div class="svc-links"><a href="https://topdrone-cotizar.netlify.app/?utm_source=web&utm_medium=site&utm_content=servicios" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg><span data-en="Quote online">Cotizar en línea</span></a><a href="assets/docs/TopDrone-Desarrollo-de-Lotes.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="PDF sheet">Ficha PDF</span></a></div>
       </article>
       <article class="svc-card reveal" style="--i:5">
         <div class="svc-top"><span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12c-4 0-7-3-7-7 4 0 7 3 7 7Z"/><path d="M12 15c0-4 3-7 7-7 0 4-3 7-7 7Z"/><path d="M4 22h16"/></svg></span><span class="svc-for" data-en="Legal · EIA · Energy">Legal · EIA · Energía</span></div>
@@ -853,14 +864,27 @@ body{ font-size:17px; line-height:1.7; }
         <ul class="svc-list"><li data-en="Cover by type, tree heights and large trees">Cobertura por tipo, altura de árboles y árboles de gran porte</li><li data-en="Vegetation profiles where the specialist indicates">Perfiles de vegetación en los puntos que indique el especialista</li><li data-en="We work with your agronomist, biologist or forester">Trabajamos con tu agrónomo, biólogo o ingeniero forestal</li></ul>
         <div class="svc-links"><a href="assets/docs/TopDrone-Due-Diligence-Ambiental.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="PDF sheet">Ficha PDF</span></a></div>
       </article>
+      <article class="svc-card reveal" style="--i:6">
+        <div class="svc-top"><span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20h20"/><path d="M4 20l5-9 3 4 2-3 6 8"/><path d="M14 7l2-3 2 3"/><path d="M9 5h.01"/></svg></span><span class="svc-for" data-en="Quarries · Aggregates · Mining">Canteras · Agregados · Minería</span></div>
+        <h3 data-en="Stockpile &amp; cut/fill volumes">Volúmenes de acopios y corte/relleno</h3>
+        <p data-en="Periodic measurement of stockpiles, extraction faces and platforms by photogrammetry or LiDAR: auditable cubic meters and tonnes for inventory, invoicing and planning.">Medición periódica de acopios, frentes de extracción y plataformas con fotogrametría o LiDAR: metros cúbicos y toneladas auditables para inventario, facturación y planificación.</p>
+        <ul class="svc-list"><li data-en="Volume per stockpile, with density, in Excel and PDF">Volumen por acopio, con densidad, en Excel y PDF</li><li data-en="Flight-to-flight comparison: extraction, face advance, cut and fill">Comparación entre vuelos: extracción, avance de frentes, corte y relleno</li><li data-en="Monthly or at closing; results within 48 h">Vuelos mensuales o al cierre contable; resultados en 48 h</li></ul>
+        <div class="svc-links"><a href="#contacto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-en="Request a proposal">Solicitar propuesta</span></a></div>
+      </article>
+      <article class="svc-card reveal" style="--i:7">
+        <div class="svc-top"><span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 9 4M20 20 15 4"/><path d="M12 7v2M12 12v2M12 17v2"/></svg></span><span class="svc-for" data-en="Road engineering · Municipalities">Ingeniería vial · Municipios</span></div>
+        <h3 data-en="Traffic studies &amp; custom missions">Estudios de tráfico y drones a medida</h3>
+        <p data-en="Counts and trajectories from aerial video, thermography and structure inspection: whatever the project needs, with georeferenced, time-stamped data.">Conteos y trayectorias desde video aéreo, termografía e inspección de estructuras: lo que el proyecto necesite, con datos georreferenciados y sincronizados en tiempo.</p>
+        <ul class="svc-list"><li data-en="Continuous passes and stationary shots over critical points">Pasadas continuas y tomas estacionarias sobre puntos críticos</li><li data-en="Every event tied to a kilometer point and an exact time">Cada evento con punto kilométrico y hora exacta</li><li data-en="Bottleneck diagnosis with probable causes">Diagnóstico de cuellos de botella y causas probables</li></ul>
+        <div class="svc-links"><a href="#avance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-en="See example">Ver ejemplo</span></a></div>
+      </article>
     </div>
     <div class="svc-extra reveal">
       <span class="lab" data-en="Also on demand">También a medida</span>
-      <span data-en="Traffic studies from aerial video">Estudios de tráfico desde video aéreo</span>
-      <span data-en="Thermography">Termografía</span>
-      <span data-en="Structure inspection">Inspección de estructuras</span>
-      <span data-en="Signed survey report for public tenders">Memoria de levantamiento firmada para licitaciones</span>
-      <span data-en="Drone program implementation">Implementación de programas de drones</span>
+      <span data-en="Signed and sealed survey report for public tenders">Memoria de levantamiento firmada y sellada para licitaciones</span>
+      <span data-en="Thermography and structure inspection">Termografía e inspección de estructuras</span>
+      <span data-en="Drone program implementation for your own team">Implementación de programas de drones para tu equipo</span>
+      <span data-en="Monthly client training day">Día de capacitación mensual para clientes</span>
     </div>
   </section>
 
@@ -951,9 +975,9 @@ body{ font-size:17px; line-height:1.7; }
   <!-- ============ AVANCE DE OBRA (método condensado + galería) ============ -->
   <section id="avance" class="section projects-gallery">
     <div class="section-head reveal">
-      <p class="section-label"><span class="num">05</span> <span data-en="Site documentation">Documentación de obra</span></p>
-      <h2 data-en="Progress <em>tracking</em>, stage by stage">Avance de <em>obra</em>, etapa por etapa</h2>
-      <p class="section-intro" data-en="Periodic flights and ground capture on one platform: every stage of the work documented, measured and comparable date against date, from pre-mobilization to interior details. Pick a stage to see real examples.">Vuelos periódicos y captura terrestre en una misma plataforma: cada etapa de la obra documentada, medida y comparable fecha contra fecha, desde la pre-movilización hasta los detalles interiores. Selecciona una etapa para ver ejemplos reales.</p>
+      <p class="section-label"><span class="num">05</span> <span data-en="Civil works">Obras civiles</span></p>
+      <h2 data-en="Documentation &amp; <em>analysis</em> of civil works">Documentación y <em>análisis</em> de obras civiles</h2>
+      <p class="section-intro" data-en="Periodic flights and ground capture on one platform, with geodetic control: every stage of the work documented, measured and comparable date against date, from pre-mobilization to interior details. Pick a stage to see real examples.">Vuelos periódicos y captura terrestre en una misma plataforma, con control geodésico: cada etapa de la obra documentada, medida y comparable fecha contra fecha, desde la pre-movilización hasta los detalles interiores. Selecciona una etapa para ver ejemplos reales.</p>
     </div>
 
     <div class="method-strip stagger reveal">
@@ -1009,7 +1033,7 @@ body{ font-size:17px; line-height:1.7; }
             <div class="proj-copy">
               <span class="eyebrow" data-en="Phase 02">Fase 02</span>
               <h3 data-en="Clearing &amp; Earthworks">Limpieza y Movimiento de Tierra</h3>
-              <p data-en="Tracking of the clearing and earthworks process, monitoring cuts and fills for progress reports and accountability.">Seguimiento del proceso de limpieza y movimiento de tierra, con monitoreo de cortes y rellenos para reportes de progreso y presentación de cuentas.</p>
+              <p data-en="Tracking of the clearing and earthworks process, monitoring cuts and fills for progress reports and accountability.">Documentación y análisis del proceso de limpieza y movimiento de tierra, con monitoreo de cortes y rellenos para reportes de progreso y presentación de cuentas.</p>
               <ul class="proj-points">
                 <li data-en="Monitoring of cuts, fills and topography">Monitoreo de cortes, rellenos y topografía</li>
                 <li data-en="Accurate volume calculations">Cálculo de volúmenes con precisión</li>
@@ -1249,6 +1273,8 @@ body{ font-size:17px; line-height:1.7; }
       <div class="client-logo reveal" style="--i:1"><img src="assets/img/clients/correagua.png" alt="Industrias Correagua" loading="lazy"></div>
       <div class="client-logo reveal" style="--i:2"><img src="assets/img/clients/haus.png" alt="Haus" loading="lazy"></div>
       <div class="client-logo reveal" style="--i:3"><img src="assets/img/clients/mte.png" alt="MTE" loading="lazy"></div>
+      <div class="client-logo reveal" style="--i:4"><img src="assets/img/clients/funsa.png" alt="FUNSA" loading="lazy"></div>
+      <div class="client-logo reveal" style="--i:0"><img src="assets/img/clients/grupo-taft.png" alt="Grupo TAFT" loading="lazy"></div>
     </div>
   </section>
 
@@ -1325,6 +1351,10 @@ body{ font-size:17px; line-height:1.7; }
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
         atencion@topdroneconsultants.com
       </a>
+      <a class="btn-quote" href="https://topdrone-cotizar.netlify.app/?utm_source=web&utm_medium=site&utm_content=contacto" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg>
+        <span data-en="Express lot quote">Cotizador express de lotes</span>
+      </a>
       <a href="#descargas">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg>
         <span data-en="Service sheets (PDF)">Fichas de servicio (PDF)</span>
@@ -1336,6 +1366,8 @@ body{ font-size:17px; line-height:1.7; }
   </section>
 </main>
 
+<a class="quote-fab" id="quoteFab" href="https://topdrone-cotizar.netlify.app/?utm_source=web&utm_medium=site&utm_content=fab" target="_blank" rel="noopener" aria-label="Cotizar levantamiento de lote"><span class="pulse" aria-hidden="true"></span><span data-en="Quote your lot · 1 min">Cotiza tu lote · 1 min</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></a>
+
 <footer class="footer">
   <div class="footer-inner">
     <img class="logo-img" src="assets/img/logo-topdrone-white.png" alt="TopDrone Consultants" width="655" height="150" style="height:34px;">
@@ -1346,25 +1378,20 @@ body{ font-size:17px; line-height:1.7; }
 
 <script>
 (function(){
-  // ---------- Shared scroll dispatcher (rAF-coalesced) ----------
-  // All scroll-driven work funnels through one listener and runs at most
-  // once per animation frame, avoiding multiple forced layouts per scroll.
-  var scrollCbs = [], scrollTicking = false;
-  var runScrollCbs = function(){
-    scrollTicking = false;
-    for(var i=0;i<scrollCbs.length;i++){ scrollCbs[i](); }
-  };
-  var onScrollDispatch = function(){
-    if(!scrollTicking){ scrollTicking = true; requestAnimationFrame(runScrollCbs); }
-  };
-  var onScrollFrame = function(cb){ scrollCbs.push(cb); cb(); };
-  document.addEventListener('scroll', onScrollDispatch, { passive:true });
-
   // ---------- Navbar scroll state ----------
   var navbar = document.getElementById('navbar');
-  onScrollFrame(function(){
+  var onScroll = function(){
     if(window.scrollY > 30){ navbar.classList.add('scrolled'); } else { navbar.classList.remove('scrolled'); }
-  });
+  };
+  document.addEventListener('scroll', onScroll, { passive:true });
+  onScroll();
+
+  // ---------- Floating quote pill (appears after the hero) ----------
+  var fab = document.getElementById('quoteFab');
+  var hero = document.getElementById('inicio');
+  var fabToggle = function(){ if(fab && hero){ fab.classList.toggle('show', window.scrollY > hero.offsetHeight * 0.7); } };
+  document.addEventListener('scroll', fabToggle, { passive:true });
+  fabToggle();
 
   // ---------- Mobile nav toggle ----------
   var toggle = document.getElementById('navToggle');
@@ -1427,7 +1454,8 @@ body{ font-size:17px; line-height:1.7; }
     sections.forEach(function(s){ if(s.offsetTop <= pos){ current = s; } });
     navAnchors.forEach(function(a){ a.classList.toggle('active', a.getAttribute('href') === '#' + current.id); });
   };
-  onScrollFrame(setActive);
+  document.addEventListener('scroll', setActive, { passive:true });
+  setActive();
 
   // ---------- Reveal on scroll ----------
   var io = new IntersectionObserver(function(entries){
@@ -1522,12 +1550,12 @@ body{ font-size:17px; line-height:1.7; }
     var activeIdx = Math.floor(progress * phaseItems.length);
     phaseItems.forEach(function(item, i){ item.classList.toggle('is-visible', i <= activeIdx); });
   };
+  document.addEventListener('scroll', updatePhaseProgress, { passive:true });
   window.addEventListener('resize', updatePhaseProgress);
-  onScrollFrame(updatePhaseProgress);
+  updatePhaseProgress();
 
   // ---------- LiDAR forest-scan canvas ----------
   var canvas = document.getElementById('lidarscan');
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(canvas){
     var ctx = canvas.getContext('2d');
     var dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -1618,27 +1646,9 @@ body{ font-size:17px; line-height:1.7; }
         ctx.beginPath(); ctx.arc(scanX+12,droneY,2.6,0,Math.PI*2); ctx.fill();
         ctx.fillRect(scanX-3,droneY-2,6,5);
       }
-      if(running) rafId = requestAnimationFrame(draw);
+      requestAnimationFrame(draw);
     };
-
-    // Only animate while the canvas is on-screen; honor reduced-motion.
-    var running = false, rafId = 0, inView = true;
-    var start = function(){ if(!running && !reduceMotion && inView && !document.hidden){ running = true; rafId = requestAnimationFrame(draw); } };
-    var stop = function(){ running = false; if(rafId) cancelAnimationFrame(rafId); rafId = 0; };
-    if(reduceMotion){
-      draw();   // render a single static frame
-    } else if('IntersectionObserver' in window){
-      new IntersectionObserver(function(entries){
-        inView = entries[0].isIntersecting;
-        inView ? start() : stop();
-      }, { threshold: 0 }).observe(canvas);
-    } else {
-      start();
-    }
-    // Pause when the tab is hidden; resume only if still on-screen.
-    document.addEventListener('visibilitychange', function(){
-      document.hidden ? stop() : start();
-    });
+    draw();
   }
 })();
 </script>
