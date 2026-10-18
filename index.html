@@ -592,7 +592,7 @@ body{ font-size:17px; line-height:1.7; }
 @media (max-width:760px){ .modes-grid{ grid-template-columns:1fr; } }
 
 /* ============ DESCARGAS (fichas PDF) ============ */
-.docs-grid{ display:grid; grid-template-columns:repeat(5,1fr); gap:18px; }
+.docs-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
 .doc-card{ display:flex; flex-direction:column; background:var(--navy-card); border:1px solid var(--line); border-radius:2px; overflow:hidden; transition:transform .45s var(--ease), border-color .4s, box-shadow .4s; }
 .doc-card:hover{ transform:translateY(-6px); border-color:var(--line-strong); box-shadow:0 24px 60px -24px rgba(0,0,0,.6); }
 .doc-thumb{ position:relative; aspect-ratio:8.5/11; overflow:hidden; background:#fff; border-bottom:1px solid var(--line); }
@@ -610,7 +610,7 @@ body{ font-size:17px; line-height:1.7; }
 .doc-btn svg{ width:14px; height:14px; }
 .docs-note{ margin-top:26px; font-size:.9rem; color:var(--text-faint); }
 .docs-note a{ color:var(--sky-bright); }
-@media (max-width:1100px){ .docs-grid{ grid-template-columns:repeat(3,1fr); } }
+@media (max-width:1100px){ .docs-grid{ grid-template-columns:repeat(3,1fr); gap:16px; } }
 @media (max-width:720px){ .docs-grid{ grid-template-columns:repeat(2,1fr); } }
 @media (max-width:460px){ .docs-grid{ grid-template-columns:1fr; } }
 
@@ -839,7 +839,7 @@ body{ font-size:17px; line-height:1.7; }
         <h3 data-en="Civil works documentation &amp; analysis">Documentación y análisis de obras civiles</h3>
         <p data-en="Not a drone video: periodic georeferenced flights with surface comparison, cut and fill, stockpiles and percent progress per work front, measured against the plans.">No es un video de dron: vuelos periódicos georreferenciados con comparación de superficies, corte y relleno, acopios y porcentaje de avance por frente, medidos contra los planos.</p>
         <ul class="svc-list"><li data-en="From pre-mobilization to interior details">De la pre-movilización a los detalles interiores</li><li data-en="Volumes between flights and early detection of deviations">Volúmenes entre vuelos y detección temprana de desviaciones</li><li data-en="Reports for pay applications, audits and certifications">Reportes para cortes de obra, auditorías y certificaciones</li></ul>
-        <div class="svc-links"><a href="#avance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-en="See how we do it">Ver cómo lo hacemos</span></a></div>
+        <div class="svc-links"><a href="#avance"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span data-en="See how we do it">Ver cómo lo hacemos</span></a><a href="assets/docs/TopDrone-Obras-Civiles.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="PDF sheet">Ficha PDF</span></a></div>
       </article>
       <article class="svc-card reveal" style="--i:2">
         <div class="svc-top"><span class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M2 12c0 3 4.5 5 10 5s10-2 10-5-4.5-5-10-5S2 9 2 12Z"/><path d="M12 2v3M12 19v3"/></svg></span><span class="svc-for" data-en="Construction · Interiors">Construcción · Interiores</span></div>
@@ -1174,7 +1174,7 @@ body{ font-size:17px; line-height:1.7; }
     <div class="section-head reveal">
       <p class="section-label"><span class="num">06</span> <span data-en="Technical sheets">Fichas técnicas</span></p>
       <h2 data-en="Download our <em>service sheets</em>">Descarga nuestras <em>fichas de servicio</em></h2>
-      <p class="section-intro" data-en="Five two-page PDFs, ready to share with your team or your client: what each study answers, how it works, deliverables and real cases.">Cinco fichas de dos páginas en PDF, listas para compartir con tu equipo o tu cliente: qué responde cada estudio, cómo funciona, entregables y casos reales.</p>
+      <p class="section-intro" data-en="Six two-page PDFs, ready to share with your team or your client: what each study answers, how it works, deliverables and real cases.">Seis fichas de dos páginas en PDF, listas para compartir con tu equipo o tu cliente: qué responde cada estudio, cómo funciona, entregables y casos reales.</p>
     </div>
     <div class="docs-grid stagger">
       <article class="doc-card reveal" style="--i:0">
@@ -1185,6 +1185,16 @@ body{ font-size:17px; line-height:1.7; }
           <p data-en="LiDAR topography, inventory and progress tracking: deliverables, where it applies and how we work.">Topografía LiDAR, inventario y avance de obra: entregables, dónde aplica y cómo trabajamos.</p>
           <p class="doc-meta"><span data-en="2 pages">2 páginas</span> · 0.4 MB · ES</p>
           <a class="doc-btn" href="assets/docs/TopDrone-Servicios-Ingenieria.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="Download">Descargar</span></a>
+        </div>
+      </article>
+      <article class="doc-card reveal" style="--i:1">
+        <a class="doc-thumb" href="assets/docs/TopDrone-Obras-Civiles.pdf" download aria-label="Documentación y análisis de obras civiles (PDF)"><span class="doc-kind">PDF</span><img src="assets/img/docs/TopDrone-Obras-Civiles.jpg" alt="Portada de la ficha: Documentación y análisis de obras civiles" loading="lazy" width="680" height="880"></a>
+        <div class="doc-body">
+          <p class="doc-for" data-en="Contractors · Developers · PMC">Contratistas · Promotoras · PMC</p>
+          <h3 data-en="Civil works documentation &amp; analysis">Documentación y análisis de obras civiles</h3>
+          <p data-en="Progress measured against the plans, date against date: volumes, progress per front, plan overlays and field reports.">Avance medido contra los planos, fecha contra fecha: volúmenes, avance por frente, superposición con planos y reportes de campo.</p>
+          <p class="doc-meta"><span data-en="2 pages">2 páginas</span> · 0.4 MB · ES</p>
+          <a class="doc-btn" href="assets/docs/TopDrone-Obras-Civiles.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 20h16"/></svg><span data-en="Download">Descargar</span></a>
         </div>
       </article>
       <article class="doc-card reveal" style="--i:1">
