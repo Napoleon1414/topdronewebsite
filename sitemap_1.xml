@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://topdroneconsultants.com/</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://topdroneconsultants.com/assets/img/og-cover.jpg</image:loc><image:caption>Topografía LiDAR, fotogrametría y documentación de obras con drones en Panamá</image:caption></image:image>
+    <image:image><image:loc>https://topdroneconsultants.com/assets/img/lidar/wf-1-pointcloud.jpg</image:loc><image:caption>Nube de puntos LiDAR</image:caption></image:image>
+    <image:image><image:loc>https://topdroneconsultants.com/assets/img/lidar/wf-5-contours.jpg</image:loc><image:caption>Curvas de nivel generadas desde LiDAR</image:caption></image:image>
+    <image:image><image:loc>https://topdroneconsultants.com/assets/img/projects/movimiento-tierra.jpg</image:loc><image:caption>Ortomosaico de movimiento de tierra con dron</image:caption></image:image>
+    <image:image><image:loc>https://topdroneconsultants.com/assets/img/corredor-vial.jpg</image:loc><image:caption>Ortomosaico de corredor vial</image:caption></image:image>
+  </url>
+  <url>
+    <loc>https://topdroneconsultants.com/assets/docs/TopDrone-Servicios-Ingenieria.pdf</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://topdroneconsultants.com/assets/docs/TopDrone-Obras-Civiles.pdf</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://topdroneconsultants.com/assets/docs/TopDrone-Desarrollo-de-Lotes.pdf</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://topdroneconsultants.com/assets/docs/TopDrone-Due-Diligence-Ambiental.pdf</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://topdroneconsultants.com/assets/docs/TopDrone-Registro-Digital-Infraestructura.pdf</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://topdroneconsultants.com/assets/docs/TopDrone-Captura-Terrestre.pdf</loc>
+    <lastmod>2026-10-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.5</priority>
+  </url>
+</urlset>
