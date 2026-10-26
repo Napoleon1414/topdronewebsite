@@ -1638,6 +1638,15 @@ body{ font-size:17px; line-height:1.7; }
   var i18nEls = document.querySelectorAll('[data-en]');
   var i18nTextEls = document.querySelectorAll('[data-en-text]');
   var currentLang = 'es';
+  // los enlaces al cotizador abren en el mismo idioma que el sitio
+  var setQuoteLang = function(lang){
+    document.querySelectorAll('a[href*="topdrone-cotizar"]').forEach(function(a){
+      try{ var u = new URL(a.href); u.searchParams.set('lang', lang); a.href = u.toString(); }catch(e){}
+    });
+    var fab = document.getElementById('quoteFab');
+    if(fab) fab.setAttribute('aria-label', lang === 'en' ? 'Quote your lot survey' : 'Cotizar levantamiento de lote');
+  };
+  setQuoteLang('es');
   var applyLang = function(lang){
     if(lang === currentLang) return;
     i18nEls.forEach(function(el){
@@ -1662,6 +1671,7 @@ body{ font-size:17px; line-height:1.7; }
       }
     });
     currentLang = lang;
+    setQuoteLang(lang);
     document.documentElement.lang = lang;
     if(langToggle){
       langToggle.querySelectorAll('span').forEach(function(s){
