@@ -60,7 +60,9 @@ Tu trabajo es TRANSCRIBIR los datos del lindero del lote, no calcularlos:
 - Sistema de coordenadas si está indicado (WGS84, NAD27, "Zona del Canal", local…).
 
 Reglas:
-- Los lados van en orden alrededor del lote, como en la tabla.
+- Los lados van en orden alrededor del lote, como en la tabla: una entrada por cada fila EST–PV, sin saltarse ninguna.
+- Si una fila está tapada, superpuesta, tachada o ilegible, igual inclúyela: copia lo que sí se lea (por ejemplo el rumbo) y pon null en lo que no. Nunca muevas un valor a otra fila ni repitas el valor de la fila vecina; el sistema calcula las distancias faltantes por cierre de la poligonal.
+- La distancia y el rumbo de cada lado van en la misma fila del cuadro; en fotos o escaneos torcidos, sigue la fila con cuidado.
 - Si un número no se lee con seguridad, pon null en ese valor y explícalo en notas; los textos que no apliquen van vacíos (""). Nunca inventes ni completes números.
 - Si el plano muestra varios lotes, transcribe el lote principal (el que da título al plano o cuya superficie se destaca), marca varios_lotes y di cuál elegiste.
 - En "regiones" da la caja [x1, y1, x2, y2] (cuatro números) en píxeles de la imagen indicada (origen arriba a la izquierda) de cada tabla de rumbos, tabla de coordenadas y texto de superficie que veas, aunque la letra sea pequeña. Así podemos ampliarlas.
@@ -119,7 +121,7 @@ function llamarClaude(cuerpo){
 // página de estado para revisar desde el navegador (no muestra la clave)
 app.get('/api/plano/estado', (req, res) => {
   res.json({servidor: 'ok', clave_configurada: !!CLAVE, clave_formato_ok: !!CLAVE && /^sk-ant-/.test(CLAVE.trim()),
-            modelo: MODELO, origenes: ORIGENES, consultas_hoy: usoDia, version: '2026-10-28c'});
+            modelo: MODELO, origenes: ORIGENES, consultas_hoy: usoDia, version: '2026-10-28d'});
 });
 app.options('/api/plano', cors);
 app.post('/api/plano', cors, express.json({limit: '25mb'}), async (req, res) => {
@@ -160,6 +162,10 @@ app.post('/api/plano', cors, express.json({limit: '25mb'}), async (req, res) => 
       console.error(`[plano] respuesta sin JSON (stop_reason=${r.stop_reason})`);
       return res.status(502).json({ok: false, error: 'sin_lectura', detalle: String(r.stop_reason || '')});
     }
+    const nulos = (datos.lados || []).filter(l => l.distancia_m === null || l.grados === null).length;
+    console.log(`[plano] lectura ref=${String(b.ref || '').slice(0, 20)} lados=${(datos.lados || []).length} incompletos=${nulos} ` +
+                `coords=${(datos.coordenadas || []).length} sup=${datos.superficie_m2} legib=${datos.legibilidad} ` +
+                `regiones=${(datos.regiones || []).length} notas="${String(datos.notas || '').slice(0, 160)}"`);
     res.json({ok: true, datos});
   }catch(e){
     console.error('[plano] error', e.message);
