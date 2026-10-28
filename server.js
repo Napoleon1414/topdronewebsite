@@ -61,47 +61,40 @@ Tu trabajo es TRANSCRIBIR los datos del lindero del lote, no calcularlos:
 
 Reglas:
 - Los lados van en orden alrededor del lote, como en la tabla.
-- Si un valor no se lee con seguridad, pon null en ese valor y explícalo en notas. Nunca inventes ni completes números.
+- Si un número no se lee con seguridad, pon null en ese valor y explícalo en notas; los textos que no apliquen van vacíos (""). Nunca inventes ni completes números.
 - Si el plano muestra varios lotes, transcribe el lote principal (el que da título al plano o cuya superficie se destaca), marca varios_lotes y di cuál elegiste.
-- En "regiones" da la caja [x1, y1, x2, y2] en píxeles de la imagen indicada (origen arriba a la izquierda) de cada tabla de rumbos, tabla de coordenadas y texto de superficie que veas, aunque la letra sea pequeña. Así podemos ampliarlas.
+- En "regiones" da la caja [x1, y1, x2, y2] (cuatro números) en píxeles de la imagen indicada (origen arriba a la izquierda) de cada tabla de rumbos, tabla de coordenadas y texto de superficie que veas, aunque la letra sea pequeña. Así podemos ampliarlas.
 - Si la imagen no es un plano de un terreno, marca es_plano = false.
-Responde únicamente llamando a la herramienta entregar_lectura_plano.`;
+Responde únicamente con el JSON del esquema indicado.`;
 
-const NUM = {type: ['number', 'null']};
-const HERRAMIENTA = {
-  name: 'entregar_lectura_plano',
-  description: 'Entrega lo transcrito del plano.',
-  input_schema: {
-    type: 'object',
-    properties: {
-      es_plano: {type: 'boolean'},
-      legibilidad: {type: 'string', enum: ['buena', 'parcial', 'mala']},
-      lados: {type: 'array', items: {type: 'object', properties: {
-        desde: {type: ['string', 'null']}, hasta: {type: ['string', 'null']},
-        ns: {type: ['string', 'null'], enum: ['N', 'S', null]},
-        grados: NUM, minutos: NUM, segundos: NUM,
-        eo: {type: ['string', 'null'], enum: ['E', 'O', null]},
-        azimut: NUM, distancia_m: NUM
-      }, required: ['ns', 'grados', 'minutos', 'segundos', 'eo', 'distancia_m']}},
-      coordenadas: {type: 'array', items: {type: 'object', properties: {
-        punto: {type: ['string', 'null']}, norte: NUM, este: NUM
-      }, required: ['norte', 'este']}},
-      sistema_coordenadas: {type: ['string', 'null']},
-      superficie_texto: {type: ['string', 'null']},
-      superficie_m2: NUM,
-      perimetro_m: NUM,
-      varios_lotes: {type: 'boolean'},
-      lote_elegido: {type: ['string', 'null']},
-      regiones: {type: 'array', items: {type: 'object', properties: {
-        imagen: {type: 'integer', description: 'número de la imagen (1, 2, …)'},
-        tipo: {type: 'string', enum: ['rumbos', 'coordenadas', 'superficie']},
-        caja: {type: 'array', items: {type: 'number'}, minItems: 4, maxItems: 4}
-      }, required: ['imagen', 'tipo', 'caja']}},
-      notas: {type: ['string', 'null']}
-    },
-    required: ['es_plano', 'legibilidad', 'lados', 'coordenadas', 'superficie_m2', 'regiones']
-  }
-};
+// esquema de la respuesta (salida estructurada): Claude devuelve exactamente este JSON
+const NUM = {type: ['number', 'null']};   // número o null si no se lee
+const TXT = {type: 'string'};             // texto ("" si no aplica)
+const obj = (props) => ({type: 'object', properties: props, required: Object.keys(props), additionalProperties: false});
+const ESQUEMA = obj({
+  es_plano: {type: 'boolean'},
+  legibilidad: {type: 'string', enum: ['buena', 'parcial', 'mala']},
+  lados: {type: 'array', items: obj({
+    desde: TXT, hasta: TXT,
+    ns: {type: 'string', enum: ['N', 'S', '']},
+    grados: NUM, minutos: NUM, segundos: NUM,
+    eo: {type: 'string', enum: ['E', 'O', '']},
+    azimut: NUM, distancia_m: NUM
+  })},
+  coordenadas: {type: 'array', items: obj({ punto: TXT, norte: NUM, este: NUM })},
+  sistema_coordenadas: TXT,
+  superficie_texto: TXT,
+  superficie_m2: NUM,
+  perimetro_m: NUM,
+  varios_lotes: {type: 'boolean'},
+  lote_elegido: TXT,
+  regiones: {type: 'array', items: obj({
+    imagen: {type: 'integer'},
+    tipo: {type: 'string', enum: ['rumbos', 'coordenadas', 'superficie']},
+    caja: {type: 'array', items: {type: 'number'}}
+  })},
+  notas: TXT
+});
 
 function llamarClaude(cuerpo){
   return new Promise((ok, mal) => {
@@ -126,7 +119,7 @@ function llamarClaude(cuerpo){
 // página de estado para revisar desde el navegador (no muestra la clave)
 app.get('/api/plano/estado', (req, res) => {
   res.json({servidor: 'ok', clave_configurada: !!CLAVE, clave_formato_ok: !!CLAVE && /^sk-ant-/.test(CLAVE.trim()),
-            modelo: MODELO, origenes: ORIGENES, consultas_hoy: usoDia, version: '2026-10-28b'});
+            modelo: MODELO, origenes: ORIGENES, consultas_hoy: usoDia, version: '2026-10-28c'});
 });
 app.options('/api/plano', cors);
 app.post('/api/plano', cors, express.json({limit: '25mb'}), async (req, res) => {
@@ -154,16 +147,20 @@ app.post('/api/plano', cors, express.json({limit: '25mb'}), async (req, res) => 
   const t0 = Date.now();
   try{
     const r = await llamarClaude({
-      model: MODELO, max_tokens: 4000, system: INSTRUCCIONES,
-      tools: [HERRAMIENTA], tool_choice: {type: 'tool', name: HERRAMIENTA.name},
+      model: MODELO, max_tokens: 8000, system: INSTRUCCIONES,
+      output_config: {format: {type: 'json_schema', schema: ESQUEMA}},
       messages: [{role: 'user', content: contenido}]
     });
     const uso = r.usage || {};
     console.log(`[plano] ref=${String(b.ref || '').slice(0, 20)} etapa=${b.etapa || 'ubicar'} imgs=${imgs.length} ` +
                 `entrada=${uso.input_tokens} salida=${uso.output_tokens} ${Date.now() - t0}ms`);
-    const t = (r.content || []).find(c => c.type === 'tool_use');
-    if(!t) return res.status(502).json({ok: false, error: 'sin_lectura'});
-    res.json({ok: true, datos: t.input});
+    const t = (r.content || []).find(c => c.type === 'text');
+    let datos = null; try{ datos = JSON.parse(t && t.text); }catch(e){}
+    if(!datos){
+      console.error(`[plano] respuesta sin JSON (stop_reason=${r.stop_reason})`);
+      return res.status(502).json({ok: false, error: 'sin_lectura', detalle: String(r.stop_reason || '')});
+    }
+    res.json({ok: true, datos});
   }catch(e){
     console.error('[plano] error', e.message);
     res.status(502).json({ok: false, error: 'ia', detalle: String(e.message).slice(0, 200)});
