@@ -10,7 +10,7 @@ app.set('trust proxy', true);   // DigitalOcean pone la IP real del visitante en
    los rumbos, distancias, coordenadas y superficie como datos.
    La clave de Anthropic vive SOLO aquí, en la variable ANTHROPIC_API_KEY.
    ===================================================================== */
-const CLAVE   = process.env.ANTHROPIC_API_KEY;
+const CLAVE   = (process.env.ANTHROPIC_API_KEY || '').trim();
 const MODELO  = process.env.PLANO_MODELO || 'claude-sonnet-5-5';
 const ORIGENES = (process.env.PLANO_ORIGENES || 'https://topdrone-cotizar.netlify.app')
   .split(',').map(s => s.trim()).filter(Boolean);
@@ -31,17 +31,22 @@ function permitir(ip){
   return null;
 }
 
+// también acepta las vistas previas de Netlify (p. ej. https://abc123--topdrone-cotizar.netlify.app)
+const origenOk = o => !!o && (ORIGENES.includes(o) || /^https:\/\/[a-z0-9-]+--topdrone-cotizar\.netlify\.app$/.test(o));
 function cors(req, res, next){
   const o = req.headers.origin;
-  if(o && ORIGENES.includes(o)){
+  if(origenOk(o)){
     res.setHeader('Access-Control-Allow-Origin', o);
     res.setHeader('Vary', 'Origin');
     res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     res.setHeader('Access-Control-Max-Age', '86400');
   }
-  if(req.method === 'OPTIONS') return res.sendStatus(o && ORIGENES.includes(o) ? 204 : 403);
-  if(!o || !ORIGENES.includes(o)) return res.status(403).json({ok:false, error:'origen'});
+  if(req.method === 'OPTIONS'){
+    if(!origenOk(o)) console.log(`[plano] rechazado (origen) ${o || 'sin origen'}`);
+    return res.sendStatus(origenOk(o) ? 204 : 403);
+  }
+  if(!origenOk(o)){ console.log(`[plano] rechazado (origen) ${o || 'sin origen'}`); return res.status(403).json({ok:false, error:'origen'}); }
   next();
 }
 
@@ -118,18 +123,24 @@ function llamarClaude(cuerpo){
   });
 }
 
+// página de estado para revisar desde el navegador (no muestra la clave)
+app.get('/api/plano/estado', (req, res) => {
+  res.json({servidor: 'ok', clave_configurada: !!CLAVE, clave_formato_ok: !!CLAVE && /^sk-ant-/.test(CLAVE.trim()),
+            modelo: MODELO, origenes: ORIGENES, consultas_hoy: usoDia, version: '2026-10-28b'});
+});
 app.options('/api/plano', cors);
 app.post('/api/plano', cors, express.json({limit: '25mb'}), async (req, res) => {
-  if(!CLAVE) return res.status(503).json({ok: false, error: 'sin_clave'});
   const b = req.body || {};
+  console.log(`[plano] recibido ref=${String(b.ref || '').slice(0, 20)} etapa=${b.etapa || '?'} imgs=${(b.imagenes || []).length} origen=${req.headers.origin}`);
+  if(!CLAVE){ console.log('[plano] rechazado (sin_clave): falta ANTHROPIC_API_KEY'); return res.status(503).json({ok: false, error: 'sin_clave'}); }
   const imgs = Array.isArray(b.imagenes) ? b.imagenes : [];
-  if(!imgs.length || imgs.length > 8) return res.status(400).json({ok: false, error: 'imagenes'});
+  if(!imgs.length || imgs.length > 8){ console.log('[plano] rechazado (imagenes)'); return res.status(400).json({ok: false, error: 'imagenes'}); }
   for(const im of imgs){
     if(typeof im.data !== 'string' || im.data.length > 7e6 || !/^image\/(jpeg|png|webp)$/.test(im.tipo || ''))
-      return res.status(400).json({ok: false, error: 'imagen_invalida'});
+      { console.log('[plano] rechazado (imagen_invalida)'); return res.status(400).json({ok: false, error: 'imagen_invalida'}); }
   }
   const bloqueo = permitir(req.ip);
-  if(bloqueo) return res.status(429).json({ok: false, error: bloqueo});
+  if(bloqueo){ console.log(`[plano] rechazado (${bloqueo}) ip=${req.ip}`); return res.status(429).json({ok: false, error: bloqueo}); }
 
   const contenido = [];
   imgs.forEach((im, i) => {
@@ -155,7 +166,7 @@ app.post('/api/plano', cors, express.json({limit: '25mb'}), async (req, res) => 
     res.json({ok: true, datos: t.input});
   }catch(e){
     console.error('[plano] error', e.message);
-    res.status(502).json({ok: false, error: 'ia'});
+    res.status(502).json({ok: false, error: 'ia', detalle: String(e.message).slice(0, 200)});
   }
 });
 
